@@ -1,7 +1,9 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1706350249
-escena_de_pruebas.tscn::PackedScene::5751483102508783488::1706350125::0::1::::<><>::uid://7lhhp3s64ijo::::res://MovPlayer.tscn
+::res://::1706350530
+escena_de_pruebas.tscn::PackedScene::5751483102508783488::1706350533::0::1::::<><>::uid://7lhhp3s64ijo::::res://MovPlayer.tscn
 icon.svg::CompressedTexture2D::6163322926898463639::1706345096::1706345125::1::::<><>::
-MovPlayer.tscn::PackedScene::2269189503183582584::1706350125::0::1::::<><>::res://Player.gd
-Player.gd::GDScript::-1::1706349264::0::1::::<>CharacterBody3D<>::
+MovPlayer.tscn::PackedScene::2269189503183582584::1706350529::0::1::::<><>::res://scripts/Player.gd
 README.md::TextFile::-1::1706345096::0::1::::<><>::
+::res://scenes/::1706350486
+::res://scripts/::1706350529
+Player.gd::GDScript::-1::1706349264::0::1::::<>CharacterBody3D<>::

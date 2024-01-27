@@ -6,10 +6,13 @@ const JUMP_VELOCITY = 4.5
 @export var sens = 0.5
 @export var speed = 5.0
 
+signal atrapaTarta
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-#func _ready():
+func _ready():
+	$Area3D.monitoring = true
 	#gravity = 0
 
 #func _input(event):
@@ -39,3 +42,11 @@ func _physics_process(delta):
 		velocity = Vector3.ZERO
 
 	move_and_slide()
+
+
+func _on_area_entered(area):
+	print("Hola")
+	if (area.name.begins_with("Tarta")):
+		atrapaTarta.emit()
+		print("atrape una tarta")
+		area.die(name)

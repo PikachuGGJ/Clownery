@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://du0csb5w14xsk"]
+[gd_scene load_steps=10 format=3 uid="uid://du0csb5w14xsk"]
 
 [ext_resource type="PackedScene" uid="uid://7lhhp3s64ijo" path="res://scenes/MovPlayer.tscn" id="1_ffufx"]
+[ext_resource type="Script" path="res://scripts/escenario.gd" id="1_qqoqh"]
 [ext_resource type="PackedScene" uid="uid://cci8xua4igsc1" path="res://models/escenario_borrador.glb" id="2_fqq2w"]
+[ext_resource type="PackedScene" uid="uid://eqooqlq6asja" path="res://scenes/generador.tscn" id="3_yi80f"]
+[ext_resource type="Script" path="res://scripts/SueloColision.gd" id="4_fjdlu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hmbbv"]
 sky_top_color = Color(1, 1, 1, 1)
@@ -21,18 +24,23 @@ tonemap_mode = 2
 sdfgi_enabled = true
 glow_enabled = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_f6ujh"]
+size = Vector3(65.1302, 8.0625, 106.304)
+
 [node name="Escenario" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_qqoqh")
 
 [node name="GI" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_g2ofk")
 
 [node name="Player" parent="." instance=ExtResource("1_ffufx")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -18.4205, 1.62286, -0.790695)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4205, 9.31106, -0.790695)
 sens = 2.0
+speed = 30.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.20411e-08, 0.273791, -0.961789, 1.19678e-08, 0.961789, 0.273791, 1, -8.88178e-16, -4.37114e-08, -39.386, 20.279, 0)
+transform = Transform3D(-4.20411e-08, 0.273791, -0.961789, 1.19678e-08, 0.961789, 0.273791, 1, -2.39808e-14, -4.37114e-08, -39.386, 20.279, 0)
 
 [node name="escenario_borrador" parent="." instance=ExtResource("2_fqq2w")]
 
@@ -184,3 +192,26 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 20, 0,
 light_color = Color(0.678431, 0.678431, 0, 1)
 light_energy = 3.0
 spot_range = 93.734
+
+[node name="Generador" parent="." instance=ExtResource("3_yi80f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.0866, 10.5617, -0.0451975)
+
+[node name="Timer" type="Timer" parent="Generador"]
+wait_time = 0.01
+autostart = true
+
+[node name="SueloColision" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_fjdlu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SueloColision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.66751, 3.53125, 0.169319)
+shape = SubResource("BoxShape3D_f6ujh")
+
+[node name="Puntos" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="atrapaTarta" from="Player" to="." method="_on_player_atrapa_tarta"]
+[connection signal="area_entered" from="SueloColision" to="SueloColision" method="_on_area_entered"]

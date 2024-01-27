@@ -10,16 +10,14 @@ func _ready():
 func generar_Tarta():
 	instancia = tarta.instantiate()
 	var rng = RandomNumberGenerator.new()
-	var x = rng.randi_range(79, 160)
+	var x = rng.randi_range(-20, 30)
+	var y = (x + 20) / 2 + 9
+	var z = rng.randi_range(-20, 20)
 
-	instancia.pos_ini = x
-	instancia.body_entered.connect(quitar_tarta)
+	instancia.posicion = Vector3(x, y, z)
+	#instancia.body_entered.connect(quitar_tarta)
 	
 	add_child(instancia)
-	
-	
-func quitar_tarta():
-	instancia.queue_free()
 
 func _on_timer_timeout():
 	generar_Tarta()

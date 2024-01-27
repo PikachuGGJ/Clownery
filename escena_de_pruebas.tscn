@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cn7cc64yio18g"]
+[gd_scene load_steps=11 format=3 uid="uid://cn7cc64yio18g"]
 
 [ext_resource type="PackedScene" uid="uid://7lhhp3s64ijo" path="res://scenes/MovPlayer.tscn" id="1_hk1ll"]
 [ext_resource type="PackedScene" uid="uid://s1qwx2bxxdhg" path="res://scenes/tarta.tscn" id="2_jhr88"]
+[ext_resource type="PackedScene" uid="uid://eqooqlq6asja" path="res://scenes/generador.tscn" id="2_jnucu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h8scw"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -32,9 +33,10 @@ size = Vector3(10.0284, 10.0056, 0.001)
 environment = SubResource("Environment_vfpr7")
 
 [node name="Player" parent="." instance=ExtResource("1_hk1ll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50.335)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.0185857, -0.350305, 0.936451, -0.00695112, 0.936635, 0.350237, -0.999803, 4.65753e-10, -0.019843, 0.0865145, -0.0383701, 6.2515)
+transform = Transform3D(0.998818, 0.0233502, -0.0426221, -0.00695112, 0.936636, 0.350235, 0.0480995, -0.349525, 0.935691, 0.0865145, 6.11256, 71.681)
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.66559, 0)
@@ -55,7 +57,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00274646, 0.00196838, 0.499
 shape = SubResource("BoxShape3D_kq6ql")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wall"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, -32.224, 0, 0)
 mesh = SubResource("BoxMesh_fkvup")
+
+[node name="Generador" parent="." instance=ExtResource("2_jnucu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.6575)
+
+[node name="Timer" type="Timer" parent="Generador"]
+autostart = true
 
 [node name="Tarta" parent="." instance=ExtResource("2_jhr88")]

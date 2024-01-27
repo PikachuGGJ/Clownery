@@ -1,1 +1,14 @@
+Camera3D
+Timer
+CollisionShape3D
+MeshInstance3D
+Node3D
+RigidBody3D
+DirectionalLight3D
+StaticBody3D
+Button
+Sprite2D
+CollisionShape2D
+RigidBody2D
+Label
 Control

@@ -9,7 +9,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var x_axis = Input.get_axis("A","D")
-	var z_axis = Input.get_axis("W", "S")
+	var x_axis = Input.get_axis("left","right")
+	var z_axis = Input.get_axis("forward", "back")
 	position.x += x_axis
 	position.z += z_axis

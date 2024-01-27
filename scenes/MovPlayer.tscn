@@ -1,16 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://7lhhp3s64ijo"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_j4dm2"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ixoax"]
+[ext_resource type="PackedScene" uid="uid://bj1u221t64ovd" path="res://models/personaje.gltf" id="2_x1sfd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4la6o"]
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_j4dm2")
 
-[node name="BodyMesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_ixoax")
+[node name="personaje" parent="." instance=ExtResource("2_x1sfd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.5121, 128.29, 0.280838)
 
 [node name="BodyCollider" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_4la6o")

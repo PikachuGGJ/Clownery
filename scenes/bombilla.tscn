@@ -11,12 +11,66 @@ material = SubResource("StandardMaterial3D_7tx2c")
 
 [node name="Bombilla" type="Node3D"]
 
-[node name="Light" type="OmniLight3D" parent="."]
+[node name="Bulb" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5876, 0, -5.84177)
+metadata/_edit_group_ = true
+
+[node name="Light" type="OmniLight3D" parent="Bulb"]
 light_color = Color(1, 1, 0, 1)
-light_energy = 3.0
+light_energy = 5.0
 light_size = 1.0
 shadow_enabled = true
-omni_range = 32.4363
+omni_range = 15.157
+omni_attenuation = 0.5
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
+[node name="Mesh" type="MeshInstance3D" parent="Bulb"]
 mesh = SubResource("SphereMesh_qwx6w")
+skeleton = NodePath("../..")
+
+[node name="Bulb2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.05558)
+metadata/_edit_group_ = true
+
+[node name="Light" type="OmniLight3D" parent="Bulb2"]
+light_color = Color(1, 1, 0, 1)
+light_energy = 5.0
+light_size = 1.0
+shadow_enabled = true
+omni_range = 15.157
+omni_attenuation = 0.5
+
+[node name="Mesh" type="MeshInstance3D" parent="Bulb2"]
+mesh = SubResource("SphereMesh_qwx6w")
+skeleton = NodePath("../..")
+
+[node name="Bulb3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2183, 0, 21.2853)
+metadata/_edit_group_ = true
+
+[node name="Light" type="OmniLight3D" parent="Bulb3"]
+light_color = Color(1, 1, 0, 1)
+light_energy = 5.0
+light_size = 1.0
+shadow_enabled = true
+omni_range = 15.157
+omni_attenuation = 0.5
+
+[node name="Mesh" type="MeshInstance3D" parent="Bulb3"]
+mesh = SubResource("SphereMesh_qwx6w")
+skeleton = NodePath("../..")
+
+[node name="Bulb4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19.8977)
+metadata/_edit_group_ = true
+
+[node name="Light" type="OmniLight3D" parent="Bulb4"]
+light_color = Color(1, 1, 0, 1)
+light_energy = 5.0
+light_size = 1.0
+shadow_enabled = true
+omni_range = 15.157
+omni_attenuation = 0.5
+
+[node name="Mesh" type="MeshInstance3D" parent="Bulb4"]
+mesh = SubResource("SphereMesh_qwx6w")
+skeleton = NodePath("../..")

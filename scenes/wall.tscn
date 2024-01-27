@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cklodgn1w40yw"]
+
+[ext_resource type="PackedScene" uid="uid://debs2h76s0xrg" path="res://models/wall.blend" id="1_euwn6"]
+
+[node name="wall" instance=ExtResource("1_euwn6")]
+
+[node name="Cube_001" parent="." index="1"]
+visible = false

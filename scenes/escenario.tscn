@@ -1,11 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://du0csb5w14xsk"]
+[gd_scene load_steps=17 format=3 uid="uid://0rgcm88dj4gf"]
 
 [ext_resource type="PackedScene" uid="uid://7lhhp3s64ijo" path="res://scenes/MovPlayer.tscn" id="1_ffufx"]
 [ext_resource type="Script" path="res://scripts/escenario.gd" id="1_ti8cr"]
 [ext_resource type="PackedScene" uid="uid://cci8xua4igsc1" path="res://models/escenario_borrador.glb" id="2_fqq2w"]
-[ext_resource type="PackedScene" uid="uid://ctt3bf107xdki" path="res://scenes/foco.tscn" id="3_fv01g"]
+[ext_resource type="PackedScene" path="res://scenes/foco.tscn" id="3_fv01g"]
 [ext_resource type="Script" path="res://scripts/FPScounter.gd" id="3_ijmp8"]
-[ext_resource type="PackedScene" uid="uid://b72vyf66b5fhw" path="res://scenes/generador.tscn" id="5_abt4a"]
+[ext_resource type="PackedScene" path="res://scenes/generador.tscn" id="5_abt4a"]
 [ext_resource type="Script" path="res://scripts/SueloColision.gd" id="6_ujukf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hmbbv"]

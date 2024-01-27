@@ -1,11 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://du0csb5w14xsk"]
+[gd_scene load_steps=17 format=3 uid="uid://du0csb5w14xsk"]
 
 [ext_resource type="PackedScene" uid="uid://7lhhp3s64ijo" path="res://scenes/MovPlayer.tscn" id="1_ffufx"]
 [ext_resource type="Script" path="res://scripts/escenario.gd" id="1_ti8cr"]
 [ext_resource type="PackedScene" uid="uid://cci8xua4igsc1" path="res://models/escenario_borrador.glb" id="2_fqq2w"]
 [ext_resource type="PackedScene" uid="uid://ctt3bf107xdki" path="res://scenes/foco.tscn" id="3_fv01g"]
 [ext_resource type="Script" path="res://scripts/FPScounter.gd" id="3_ijmp8"]
-[ext_resource type="PackedScene" path="res://scenes/generador.tscn" id="5_abt4a"]
+[ext_resource type="PackedScene" uid="uid://b72vyf66b5fhw" path="res://scenes/generador.tscn" id="5_abt4a"]
 [ext_resource type="Script" path="res://scripts/SueloColision.gd" id="6_ujukf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hmbbv"]
@@ -36,6 +36,13 @@ size = Vector3(114.074, 23.3065, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m83l8"]
 size = Vector3(59.2645, 5.36414, 101.878)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2bmv2"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vwk53"]
+material = SubResource("StandardMaterial3D_2bmv2")
 
 [node name="Escenario" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -238,6 +245,18 @@ script = ExtResource("6_ujukf")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SueloColision"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3226, 2.18207, 2.6089)
 shape = SubResource("BoxShape3D_m83l8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 3.55271e-15, 0, 42.2088, 12.0399, 49.2064, 3.60478)
+mesh = SubResource("BoxMesh_vwk53")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 3.55271e-15, 0, 42.2088, 35.2704, 49.2064, 3.60478)
+mesh = SubResource("BoxMesh_vwk53")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 3.55271e-15, 0, 42.2088, 60.4873, 49.2064, 3.60478)
+mesh = SubResource("BoxMesh_vwk53")
 
 [connection signal="atrapaTarta" from="Player" to="." method="_on_player_atrapa_tarta"]
 [connection signal="area_entered" from="SueloColision" to="SueloColision" method="_on_area_entered"]

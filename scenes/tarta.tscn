@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://s1qwx2bxxdhg"]
+
+[ext_resource type="Script" path="res://movParabolico.gd" id="1_5h58i"]
+[ext_resource type="PackedScene" uid="uid://d0haupjkl6jn3" path="res://models/AS_Cake.glb" id="2_o1q3g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pn2sv"]
+
+[node name="Tarta" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.519, -1.11153, 12.141)
+script = ExtResource("1_5h58i")
+
+[node name="AS_Cake" parent="." instance=ExtResource("2_o1q3g")]
+transform = Transform3D(0.6, 0, 0, 0, -2.62268e-08, 0.6, 0, -0.6, -2.62268e-08, 0, 0, 0)
+
+[node name="BodyCollider" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_pn2sv")

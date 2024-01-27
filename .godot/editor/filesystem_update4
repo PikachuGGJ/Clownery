@@ -1,3 +1,4 @@
 res://escena_de_pruebas.tscn
-res://scenes/MovPlayer.tscn
-res://scripts/Player.gd
+res://scenes/menu.tscn
+res://movParabolico.gd
+res://scenes/tarta.tscn

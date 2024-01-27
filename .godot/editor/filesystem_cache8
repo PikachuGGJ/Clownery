@@ -1,3 +1,11 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1706298421
-icon.svg::CompressedTexture2D::6163322926898463639::1706298413::1706298422::1::::<><>::
+::res://::1706345273
+icon.svg::CompressedTexture2D::6163322926898463639::1706345149::1706345201::1::::<><>::
+README.md::TextFile::-1::1706345149::0::1::::<><>::
+::res://backgrounds/::1706345392
+stage-background.jpg::CompressedTexture2D::2427496316473208164::1706345392::1706345394::1::::<><>::
+::res://scenes/::1706345306
+menu.tscn::PackedScene::6396042906026885968::1706345292::0::1::::<><>::
+credits.tscn::PackedScene::7182253826966409457::1706345306::0::1::::<><>::
+::res://scripts/::1706345316
+credits.gd::GDScript::-1::1706345316::0::1::::<>Control<>::

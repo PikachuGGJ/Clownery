@@ -1,4 +1,4 @@
-res://scenes/MovPlayer.tscn
-res://scripts/Player.gd
 res://scenes/menu.tscn
-res://escena_de_pruebas.tscn
+res://scenes/credits.tscn
+res://scenes/telon.tscn
+res://themes/button_theme.tres

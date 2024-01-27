@@ -1,8 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://dalew25o8rwfx"]
+[gd_scene load_steps=4 format=3 uid="uid://dalew25o8rwfx"]
 
 [ext_resource type="Script" path="res://scripts/credits.gd" id="1_m7kp4"]
+[ext_resource type="Texture2D" uid="uid://cdutvtb7jvovq" path="res://backgrounds/butacas.jpg" id="2_sr8lj"]
+[ext_resource type="Theme" uid="uid://cxdnyqlxku3w2" path="res://themes/button_theme.tres" id="3_68mx5"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_m7kp4")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(577.332, 371)
+scale = Vector2(0.192444, 0.1855)
+texture = ExtResource("2_sr8lj")
+
+[node name="back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 534.0
+offset_top = 540.0
+offset_right = 634.0
+offset_bottom = 583.0
+grow_vertical = 0
+theme = ExtResource("3_68mx5")
+text = "Back
+"
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

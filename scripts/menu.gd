@@ -1,7 +1,7 @@
 extends Control
 
 func _on_play_pressed():
-	Telon.change_scene_to_file("res://escena_de_pruebas.tscn")
+	Telon.change_scene_to_file("res://scenes/escenario.tscn")
 
 func _on_exit_pressed():
 	get_tree().quit()

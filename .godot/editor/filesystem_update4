@@ -1,9 +1,1 @@
-res://scenes/credits.tscn
-res://scripts/credits.gd
 res://scenes/menu.tscn
-res://scripts/menu.gd
-res://scenes/telon.tscn
-res://scripts/telon.gd
-res://scenes/MovPlayer.tscn
-res://escena_de_pruebas.tscn
-res://scripts/Player.gd

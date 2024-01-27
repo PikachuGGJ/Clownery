@@ -9,16 +9,16 @@ anchors_preset = 0
 script = ExtResource("1_m7kp4")
 
 [node name="background" type="Sprite2D" parent="."]
-position = Vector2(578, 321)
-scale = Vector2(0.516623, 0.516623)
+position = Vector2(577.075, 329.188)
+scale = Vector2(0.5771, 0.5771)
 texture = ExtResource("2_nt6vu")
 
 [node name="back" type="Button" parent="."]
 layout_mode = 0
-offset_left = 530.0
-offset_top = 405.0
-offset_right = 577.0
-offset_bottom = 436.0
+offset_left = 524.0
+offset_top = 398.0
+offset_right = 624.0
+offset_bottom = 441.0
 text = "Back
 "
 

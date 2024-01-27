@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxej5lmt43t41"]
+[gd_scene load_steps=4 format=3 uid="uid://cxej5lmt43t41"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_y5x7h"]
 [ext_resource type="Texture2D" uid="uid://bat5rlgdixneq" path="res://backgrounds/stage-background.jpg" id="2_0eel5"]
+[ext_resource type="Theme" uid="uid://cxdnyqlxku3w2" path="res://themes/button_theme.tres" id="3_n37d7"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -35,6 +36,7 @@ offset_right = 50.0
 offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_n37d7")
 text = "Play"
 
 [node name="credits" type="Button" parent="."]
@@ -50,6 +52,7 @@ offset_right = 50.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_n37d7")
 text = "Credits"
 
 [node name="exit" type="Button" parent="."]
@@ -65,6 +68,7 @@ offset_right = 50.0
 offset_bottom = 81.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_n37d7")
 text = "Exit"
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]

@@ -10,7 +10,7 @@ func actualizar_niv_entr(incremento : float):
 		nivel_entretenimiento = 100
 
 func _process(delta):
-	actualizar_niv_entr(-0.04)
+	actualizar_niv_entr(-0.1)
 	$animacion_cara.frame = int(nivel_entretenimiento/20)
 	$TextureProgressBar.value = nivel_entretenimiento
 

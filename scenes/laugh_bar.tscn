@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/laugh_bar.gd" id="1_ug5d2"]
 [ext_resource type="Texture2D" uid="uid://lb1c3ho0hr56" path="res://images/barra_fondo_flip.png" id="2_co75n"]
 [ext_resource type="Texture2D" uid="uid://cr7ngsi1aseis" path="res://images/UIUX-Sheet.png" id="2_ou4yr"]
-[ext_resource type="Texture2D" uid="uid://d2fit3jj80tmd" path="res://images/barra_cristal_flip.png" id="3_tx62r"]
+[ext_resource type="Texture2D" uid="uid://bp7pw26e6dhr1" path="res://images/barra_cristal_colores_flip.png" id="3_7ny7w"]
 [ext_resource type="Texture2D" uid="uid://g7pj11ju4od6" path="res://images/barra_relleno_flip.png" id="4_tp16y"]
 [ext_resource type="Texture2D" uid="uid://5cg5tw8w6ksr" path="res://images/Smileys.png" id="6_vvsdn"]
 
@@ -74,25 +74,28 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 14.0
 offset_top = 310.0
-offset_right = -837.0
+offset_right = -823.0
 offset_bottom = -223.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 4.71239
+scale = Vector2(0.6, 0.6)
 texture_under = ExtResource("2_co75n")
-texture_over = ExtResource("3_tx62r")
+texture_over = ExtResource("3_7ny7w")
 texture_progress = ExtResource("4_tp16y")
 
 [node name="animacion_cara" type="AnimatedSprite2D" parent="."]
-position = Vector2(60, 337)
-scale = Vector2(1.30833, 1.30833)
+position = Vector2(50, 327)
+scale = Vector2(0.686458, 0.686458)
 sprite_frames = SubResource("SpriteFrames_4b7b5")
 frame_progress = 0.378381
 
 [node name="bola_medidor" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(60, 340)
+position = Vector2(50, 328)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("6_vvsdn")
 region_enabled = true
 region_rect = Rect2(604, 11, 112, 105)

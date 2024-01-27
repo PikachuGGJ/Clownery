@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2fit3jj80tmd"
-path="res://.godot/imported/barra_cristal_flip.png-a0f767d69841375d4b5116063eb7117d.ctex"
+uid="uid://bp7pw26e6dhr1"
+path="res://.godot/imported/barra_cristal_colores_flip.png-65ca5a0bb58bcf7217996366d056e7af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/barra_cristal_flip.png"
-dest_files=["res://.godot/imported/barra_cristal_flip.png-a0f767d69841375d4b5116063eb7117d.ctex"]
+source_file="res://images/barra_cristal_colores_flip.png"
+dest_files=["res://.godot/imported/barra_cristal_colores_flip.png-65ca5a0bb58bcf7217996366d056e7af.ctex"]
 
 [params]
 

@@ -272,14 +272,9 @@ mesh = SubResource("BoxMesh_vwk53")
 
 [node name="nivel_entr" parent="." instance=ExtResource("8_m27mm")]
 offset_left = 2.0
-offset_top = -108.0
+offset_top = 2.0
 offset_right = 2.0
-offset_bottom = -108.0
-
-[node name="timer_nivel_entr" type="Timer" parent="nivel_entr"]
-wait_time = 0.5
-autostart = true
+offset_bottom = 2.0
 
 [connection signal="atrapaTarta" from="Player" to="." method="_on_player_atrapa_tarta"]
 [connection signal="area_entered" from="SueloColision" to="SueloColision" method="_on_area_entered"]
-[connection signal="timeout" from="nivel_entr/timer_nivel_entr" to="." method="_on_timer_nivel_entr_timeout"]

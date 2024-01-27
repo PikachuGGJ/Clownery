@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpee12c170vn7"]
+
+[ext_resource type="PackedScene" uid="uid://d2yviwghjx1ef" path="res://models/AS_Spotlight.glb" id="1_xkfsd"]
+[ext_resource type="Script" path="res://scripts/foco_modelo.gd" id="2_qfbmj"]
+
+[node name="AS_Spotlight" instance=ExtResource("1_xkfsd")]
+script = ExtResource("2_qfbmj")

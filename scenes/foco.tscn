@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctt3bf107xdki"]
+
+[ext_resource type="Script" path="res://scripts/foco.gd" id="1_0ybfu"]
+[ext_resource type="PackedScene" uid="uid://dpee12c170vn7" path="res://scenes/foco_modelo.tscn" id="3_11h2s"]
+
+[node name="Foco" type="Node3D"]
+script = ExtResource("1_0ybfu")
+
+[node name="modelo" parent="." instance=ExtResource("3_11h2s")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="luz" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+shadow_enabled = true
+spot_range = 40.57
+spot_angle = 29.5312

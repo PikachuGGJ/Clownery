@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://dalew25o8rwfx"]
+
+[ext_resource type="Script" path="res://scripts/credits.gd" id="1_m7kp4"]
+[ext_resource type="Texture2D" uid="uid://cdutvtb7jvovq" path="res://backgrounds/butacas.jpg" id="2_sr8lj"]
+[ext_resource type="Theme" uid="uid://cxdnyqlxku3w2" path="res://themes/button_theme.tres" id="3_68mx5"]
+[ext_resource type="Script" path="res://scripts/creditos_mov.gd" id="4_x5ctw"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m7kp4")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(577.332, 371)
+scale = Vector2(0.192444, 0.1855)
+texture = ExtResource("2_sr8lj")
+
+[node name="back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 534.0
+offset_top = 540.0
+offset_right = 634.0
+offset_bottom = 583.0
+grow_vertical = 0
+theme = ExtResource("3_68mx5")
+text = "Back
+"
+
+[node name="creditos_mov" type="Node2D" parent="."]
+script = ExtResource("4_x5ctw")
+
+[node name="contenedor" type="Control" parent="creditos_mov"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 54.0
+offset_top = 67.0
+offset_right = 1109.0
+offset_bottom = 526.0
+
+[node name="linea" type="Label" parent="creditos_mov/contenedor"]
+offset_left = 218.0
+offset_top = 369.0
+offset_right = 258.0
+offset_bottom = 392.0
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

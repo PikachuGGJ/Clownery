@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://d0haupjkl6jn3" path="res://models/AS_Cake.glb" id="2_o1q3g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7xx0e"]
-size = Vector3(2.71777, 3.05817, 1.89697)
+size = Vector3(3.58154, 3.38053, 2.34399)
 
 [node name="Tarta" type="Area3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -14,8 +14,8 @@ script = ExtResource("1_5h58i")
 force = 10.0
 
 [node name="AS_Cake" parent="." instance=ExtResource("2_o1q3g")]
-transform = Transform3D(0.6, 0, 0, 0, -2.62268e-08, 0.6, 0, -0.6, -2.62268e-08, 0, 0, 0)
+transform = Transform3D(0.8, 0, 0, 0, -3.49691e-08, 0.8, 0, -0.8, -3.49691e-08, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0119629, 0.0745544, -0.448486)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0678707, 0.235732, -0.671997)
 shape = SubResource("BoxShape3D_7xx0e")

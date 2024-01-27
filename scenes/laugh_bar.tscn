@@ -55,10 +55,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 51.0
-offset_top = 11.0
-offset_right = 51.0
-offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -88,10 +84,6 @@ texture_under = ExtResource("2_co75n")
 texture_over = ExtResource("3_tx62r")
 texture_progress = ExtResource("4_tp16y")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
-autostart = true
-
 [node name="animacion_cara" type="AnimatedSprite2D" parent="."]
 position = Vector2(60, 337)
 scale = Vector2(1.30833, 1.30833)
@@ -104,5 +96,3 @@ position = Vector2(60, 340)
 texture = ExtResource("6_vvsdn")
 region_enabled = true
 region_rect = Rect2(604, 11, 112, 105)
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

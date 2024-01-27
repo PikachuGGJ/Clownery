@@ -2,3 +2,5 @@ res://scenes/credits.tscn
 res://scripts/credits.gd
 res://scenes/menu.tscn
 res://scripts/menu.gd
+res://scenes/telon.tscn
+res://scripts/telon.gd

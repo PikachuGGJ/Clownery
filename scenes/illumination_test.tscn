@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://du0csb5w14xsk"]
+
+[ext_resource type="Script" path="res://scripts/cubo_test.gd" id="1_7lc6p"]
+[ext_resource type="PackedScene" uid="uid://cwc5pyo2xast5" path="res://scenes/bombilla.tscn" id="2_itcj0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4r4p5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_24fgp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4oomj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dtef2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xylcn"]
+
+[sub_resource type="Environment" id="Environment_xmjfc"]
+sdfgi_enabled = true
+glow_enabled = true
+
+[node name="illuminationTest" type="Node3D"]
+
+[node name="suelo" type="MeshInstance3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+mesh = SubResource("BoxMesh_4r4p5")
+metadata/_edit_lock_ = true
+
+[node name="foco1" type="SpotLight3D" parent="."]
+transform = Transform3D(-3.29067e-08, 0.65823, -0.752817, 2.87721e-08, 0.752817, 0.65823, 1, 5.32907e-15, -4.37114e-08, -22.0475, 22.889, -9.45667)
+light_color = Color(1, 0, 0, 1)
+light_energy = 16.0
+light_volumetric_fog_energy = 13.285
+shadow_enabled = true
+spot_range = 36.229
+spot_angle = 69.0
+
+[node name="foco2" type="SpotLight3D" parent="."]
+transform = Transform3D(-3.8353e-08, -0.67857, 0.734536, 2.09698e-08, 0.734536, 0.67857, -1, 4.14283e-08, -1.39422e-08, 17.3405, 21.1327, 0)
+light_color = Color(1, 0, 1, 1)
+light_energy = 16.0
+light_volumetric_fog_energy = 13.285
+shadow_enabled = true
+spot_range = 36.229
+spot_angle = 69.0
+
+[node name="foco3" type="SpotLight3D" parent="."]
+transform = Transform3D(-3.65937e-08, 0.54695, -0.837165, 2.39079e-08, 0.837165, 0.54695, 1, 8.88178e-15, -4.37114e-08, -20.9569, 23.1275, 22.1129)
+light_color = Color(0, 1, 0, 1)
+light_energy = 16.0
+light_volumetric_fog_energy = 13.285
+shadow_enabled = true
+spot_range = 34.8836
+spot_angle = 69.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.954172, 0.299257, 0, -0.299257, 0.954172, 0, 17.1749, 30.3744)
+
+[node name="cubo" type="MeshInstance3D" parent="."]
+transform = Transform3D(16.3919, 0, 0, 0, 15, 0, 0, 0, 13.063, 22.7399, 6.87488, 24.8872)
+mesh = SubResource("BoxMesh_24fgp")
+skeleton = NodePath("")
+script = ExtResource("1_7lc6p")
+
+[node name="pared1" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.74846e-07, 0, 60, 0, 40, 0, -4, 0, -2.62268e-06, 0, 10, -31.3204)
+mesh = SubResource("BoxMesh_4oomj")
+
+[node name="pared4" type="MeshInstance3D" parent="."]
+transform = Transform3D(7.64274e-15, 1.74846e-06, 60, 4, -1.74846e-06, 0, 1.74846e-07, 40, -2.62268e-06, 0, 31.7593, -12.5595)
+mesh = SubResource("BoxMesh_4oomj")
+
+[node name="pared2" type="MeshInstance3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 40, 0, 0, 0, 60, -30, 10, 0)
+mesh = SubResource("BoxMesh_dtef2")
+
+[node name="pared3" type="MeshInstance3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 40, 0, 0, 0, 60, 30, 10, 0)
+mesh = SubResource("BoxMesh_xylcn")
+
+[node name="Bombilla" parent="." instance=ExtResource("2_itcj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 15.3775, -10.165)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xmjfc")

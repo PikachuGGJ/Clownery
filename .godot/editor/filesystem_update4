@@ -1,2 +1,4 @@
-res://scenes/credits.tscn
-res://scripts/credits.gd
+res://scenes/menu.tscn
+res://scenes/illumination_test.tscn
+res://scripts/cubo_test.gd
+res://scenes/bombilla.tscn

@@ -4,12 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://bj1u221t64ovd" path="res://models/personaje.gltf" id="2_x1sfd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4la6o"]
+radius = 2.17355
+height = 11.6282
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_j4dm2")
 
 [node name="personaje" parent="." instance=ExtResource("2_x1sfd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.5121, 128.29, 0.280838)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -9.77729, 7.91566, 0)
 
 [node name="BodyCollider" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_4la6o")

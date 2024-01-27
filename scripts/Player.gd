@@ -38,4 +38,4 @@ func _physics_process(delta):
 	else:
 		velocity = Vector3.ZERO
 
-	move_and_slide()
+	move_and_slide()		

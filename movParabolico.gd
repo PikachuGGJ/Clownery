@@ -1,11 +1,12 @@
-extends CharacterBody3D
+extends RigidBody3D
 
 
-const SPEED = 0.76
-const JUMP_VELOCITY = 4.5
+const SPEED = 1.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+var velocity = Vector3.ZERO
 
 #forward movement
 @export var force = 20.0
@@ -17,6 +18,7 @@ var t = 0
 func _ready():
 	velocity += -transform.basis.z * force	
 	velocity.y = verticalSpeed
+	gravity = Vector3.DOWN * 9.8
 	#pass
 
 func _process(delta):
@@ -25,7 +27,7 @@ func _process(delta):
 	t += delta
 
 func _physics_process(delta):
-	velocity.y -= gravity * delta * SPEED
+	velocity += gravity * delta * SPEED
 	look_at(transform.origin + velocity.normalized(), Vector3.UP)
-	#move_and_collide(velocity * delta * SPEED)
-	move_and_slide()
+	move_and_collide(velocity * delta * SPEED)
+	#move_and_slide()

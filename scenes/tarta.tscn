@@ -5,7 +5,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pn2sv"]
 
-[node name="Tarta" type="CharacterBody3D"]
+[node name="Tarta" type="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.519, -1.11153, 12.141)
 script = ExtResource("1_5h58i")
 

@@ -11,5 +11,10 @@ config_version=5
 [application]
 
 config/name="Clownery"
-config/features=PackedStringArray("4.2", "Forward Plus")
+run/main_scene="res://scenes/menu.tscn"
+config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
+
+[rendering]
+
+renderer/rendering_method="mobile"

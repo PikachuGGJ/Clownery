@@ -1,15 +1,13 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1706358292
+::res://::1706358912
 escena_de_pruebas.tscn::PackedScene::3738305979339558159::1706354705::0::1::::<><>::uid://cmsb64eqboh5y::::res://scenes/MovPlayer.tscn
 icon.svg::CompressedTexture2D::6163322926898463639::1706345149::1706345201::1::::<><>::
 README.md::TextFile::-1::1706345149::0::1::::<><>::
-::res://backgrounds/::1706355716
+::res://backgrounds/::1706358912
+butacas.jpg::CompressedTexture2D::5025887578871320458::1706358898::1706358915::1::::<><>::
 stage-background.jpg::CompressedTexture2D::2427496316473208164::1706345638::1706345638::1::::<><>::
-::res://images/::1706355716
+::res://images/::1706358588
 curtain.png::CompressedTexture2D::2265323239305785493::1706350663::1706350663::1::::<><>::
-red_button11.png::CompressedTexture2D::68875966397790217::1706355707::1706355716::1::::<><>::
-red_button12.png::CompressedTexture2D::69209525168050355::1706355707::1706355716::1::::<><>::
-red_button13.png::CompressedTexture2D::1935399319984211003::1706355707::1706355716::1::::<><>::
 ::res://music/::1706354522
 73581__benboncan__sad-trombone.wav::AudioStreamWAV::5011972457482386156::1706354296::1706354296::1::::<><>::
 Louie Zong & The Barking Dawgz - dog park.mp3::AudioStreamMP3::8155095862793103974::1706353323::1706353326::1::::<><>::
@@ -18,11 +16,11 @@ mixkit-completion-of-a-level-2063.wav::AudioStreamWAV::742693878941482608::17063
 mixkit-game-ball-tap-2073.wav::AudioStreamWAV::3391639000079921725::1706354522::1706354522::1::::<><>::
 mixkit-ominous-drums-227.wav::AudioStreamWAV::7973901178279705281::1706354522::1706354522::1::::<><>::
 Window shop Debauchery - Because I am a clown, my biggest fear is coulrophobia.mp3::AudioStreamMP3::8691680854808867486::1706353889::1706353889::1::::<><>::
-::res://scenes/::1706357858
-credits.tscn::PackedScene::7182253826966409457::1706357858::0::1::::<><>::res://scripts/credits.gd<>uid://bat5rlgdixneq::::res://backgrounds/stage-background.jpg
-menu.tscn::PackedScene::6396042906026885968::1706357858::0::1::::<><>::res://scripts/menu.gd<>uid://bat5rlgdixneq::::res://backgrounds/stage-background.jpg
+::res://scenes/::1706358736
+credits.tscn::PackedScene::7182253826966409457::1706358736::0::1::::<><>::res://scripts/credits.gd<>uid://bat5rlgdixneq::::res://backgrounds/stage-background.jpg
+menu.tscn::PackedScene::6396042906026885968::1706358736::0::1::::<><>::res://scripts/menu.gd<>uid://bat5rlgdixneq::::res://backgrounds/stage-background.jpg
 MovPlayer.tscn::PackedScene::5652383897304719280::1706351554::0::1::::<><>::res://scripts/Player.gd
-telon.tscn::PackedScene::7181383505158037366::1706357858::0::1::::<><>::res://scripts/telon.gd<>uid://7jlsppteoejd::::res://images/curtain.png
+telon.tscn::PackedScene::7181383505158037366::1706358736::0::1::::<><>::res://scripts/telon.gd<>uid://7jlsppteoejd::::res://images/curtain.png
 ::res://scripts/::1706357368
 credits.gd::GDScript::-1::1706350663::0::1::::<>Control<>::
 menu.gd::GDScript::-1::1706357368::0::1::::<>Control<>::

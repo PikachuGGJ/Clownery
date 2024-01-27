@@ -6,10 +6,13 @@ const JUMP_VELOCITY = 4.5
 @export var sens = 0.5
 @export var speed = 5.0
 
+var tieneTarta = false
+
 signal atrapaTarta
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var t = 0
 
 func _ready():
 	$Area3D.monitoring = true
@@ -43,10 +46,28 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+func setTartaCara(estado):
+	if (tieneTarta and estado):
+		$Timer.stop()
+		$Timer.start()
+	elif not estado:
+		$Timer.stop()
+		$AnimationPlayer.play("quitarTarta")
+		tieneTarta = false
+	elif not tieneTarta and estado:
+		$Tarta.visible = true
+		$AnimationPlayer.play("RESET")
+		$Timer.start()
+		tieneTarta = true
+		
+	
 
 func _on_area_entered(area):
-	print("Hola")
 	if (area.name.begins_with("Tarta")):
 		atrapaTarta.emit()
-		print("atrape una tarta")
 		area.die(name)
+		setTartaCara(true)
+
+
+func _on_timer_timeout():
+	setTartaCara(false)

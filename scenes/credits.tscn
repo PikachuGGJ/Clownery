@@ -1,8 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://dalew25o8rwfx"]
+[gd_scene load_steps=3 format=3 uid="uid://dalew25o8rwfx"]
 
 [ext_resource type="Script" path="res://scripts/credits.gd" id="1_m7kp4"]
+[ext_resource type="Texture2D" uid="uid://bat5rlgdixneq" path="res://backgrounds/stage-background.jpg" id="2_nt6vu"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_m7kp4")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(578, 321)
+scale = Vector2(0.516623, 0.516623)
+texture = ExtResource("2_nt6vu")
+
+[node name="back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 405.0
+offset_right = 577.0
+offset_bottom = 436.0
+text = "Back
+"
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

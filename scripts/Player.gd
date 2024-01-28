@@ -6,6 +6,8 @@ const JUMP_VELOCITY = 4.5
 @export var sens = 0.5
 @export var speed = 5.0
 
+var posicion_orig : Vector3
+
 var tieneTarta = false
 
 signal atrapaTarta
@@ -62,6 +64,8 @@ func _physics_process(delta):
 	
 	if (velocity.normalized().length() <= 0.05 ):
 		player_anim.play_idle()
+	
+	# if monociclo player_anim.play_monocicle()
 
 	move_and_slide()
 
@@ -102,6 +106,17 @@ func _on_area_exited(area):
 
 
 func _on_coge_monociclo():
-	position.x = 0
-	position.z = 0
-	position.y += 10
+	print("no")
+	visible = false
+	posicion_orig = position
+	position.z = 20
+
+
+func _on_monociclo_player_termina_monociclo():
+	print("si")
+
+	visible = true
+	if (posicion_orig.z < 8 and posicion_orig.z > -8):
+		posicion_orig.z = -9
+		print("yuuju")
+	position = posicion_orig

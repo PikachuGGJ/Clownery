@@ -27,7 +27,7 @@ func _ready():
 	#pass
 
 func _process(delta):
-	if t > 8:
+	if t > 5:
 		queue_free()
 	t += delta
 	position = position + delta * velocity * speed;

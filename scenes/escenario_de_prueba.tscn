@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://djmm3yb3vopsj"]
+[gd_scene load_steps=7 format=3 uid="uid://djmm3yb3vopsj"]
 
 [ext_resource type="PackedScene" uid="uid://7lhhp3s64ijo" path="res://scenes/MovPlayer.tscn" id="1_fy4af"]
 [ext_resource type="Script" path="res://scenes/Suelo.gd" id="2_lgita"]
 [ext_resource type="Script" path="res://scripts/Generador_Monociclos.gd" id="3_l15uh"]
+[ext_resource type="PackedScene" uid="uid://cgnvhda4dp8p" path="res://scenes/monociclo_player.tscn" id="4_53dbo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v711m"]
 size = Vector3(70, 2, 70)
@@ -45,6 +46,15 @@ script = ExtResource("3_l15uh")
 
 [node name="Timer" type="Timer" parent="Generador_Monociclos"]
 autostart = true
+
+[node name="Monociclo_Player" parent="." instance=ExtResource("4_53dbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.664339, 0.736193, 14.3714)
+
+[node name="Timer" type="Timer" parent="Monociclo_Player"]
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.6382, 25.6332, 7.5782)
+pixel_size = 0.3
 
 [connection signal="cogeMonociclo" from="Player" to="Player" method="_on_coge_monociclo"]
 [connection signal="cogeMonociclo" from="Player" to="Generador_Monociclos" method="_on_player_coge_monociclo"]

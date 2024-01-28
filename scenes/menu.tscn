@@ -71,6 +71,13 @@ grow_vertical = 2
 theme = ExtResource("3_n37d7")
 text = "Exit"
 
+[node name="username" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = -100.0
+offset_top = -150.0
+offset_right = 100.0
+offset_bottom = -110.0
+
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

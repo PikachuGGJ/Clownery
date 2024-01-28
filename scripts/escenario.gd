@@ -20,4 +20,5 @@ func _on_timer_nivel_entr_timeout():
 		
 func _process(delta):
 	$Puntos.set_text("Score: " + str(puntos))
+	$Tiempo.set_text(str(int($tiempo_juego.get_time_left())))
 

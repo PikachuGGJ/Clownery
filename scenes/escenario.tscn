@@ -89,6 +89,12 @@ offset_right = -28.0
 offset_bottom = 79.0
 grow_horizontal = 0
 
+[node name="Tiempo" type="Label" parent="."]
+offset_left = 1100.0
+offset_top = 88.0
+offset_right = 1140.0
+offset_bottom = 111.0
+
 [node name="InvWalls" type="Node3D" parent="."]
 
 [node name="Izquierda" type="StaticBody3D" parent="InvWalls"]
@@ -278,6 +284,11 @@ offset_bottom = -108.0
 
 [node name="timer_nivel_entr" type="Timer" parent="nivel_entr"]
 wait_time = 0.5
+autostart = true
+
+[node name="tiempo_juego" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
 autostart = true
 
 [connection signal="atrapaTarta" from="Player" to="." method="_on_player_atrapa_tarta"]

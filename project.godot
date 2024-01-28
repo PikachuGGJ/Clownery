@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Telon="*res://scenes/telon.tscn"
+ScoreManager="*res://scenes/ScoreManager.tscn"
 
 [display]
 

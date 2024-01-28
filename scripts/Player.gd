@@ -52,6 +52,9 @@ func _physics_process(delta):
 	
 	if (abs(velocity.x) > 0):
 		player_anim.play_crab()
+	
+	if (velocity.normalized().length() <= 0.05 ):
+		player_anim.play_idle()
 
 	move_and_slide()
 

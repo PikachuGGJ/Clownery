@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_y5x7h"]
 [ext_resource type="Texture2D" uid="uid://bat5rlgdixneq" path="res://backgrounds/stage-background.jpg" id="2_0eel5"]
-[ext_resource type="Theme" uid="uid://cn0dctns0w8hl" path="res://themes/button_theme.tres" id="3_n37d7"]
+[ext_resource type="Theme" uid="uid://cxdnyqlxku3w2" path="res://themes/button_theme.tres" id="3_n37d7"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -70,6 +70,29 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_n37d7")
 text = "Exit"
+
+[node name="username" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = -100.0
+offset_top = -170.0
+offset_right = 100.0
+offset_bottom = -130.0
+
+[node name="ErrorMsg" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -246.0
+offset_top = -120.0
+offset_right = 246.0
+offset_bottom = -89.0
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
+scroll_active = false
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="credits" to="." method="_on_credits_pressed"]

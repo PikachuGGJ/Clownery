@@ -6,13 +6,18 @@ const JUMP_VELOCITY = 4.5
 @export var sens = 0.5
 @export var speed = 5.0
 
+var tieneTarta = false
+
 signal atrapaTarta
+
+@onready var player_anim = $Player
 signal cogeMonociclo
 
 var tocando_monociclo = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var t = 0
 
 func _ready():
 	$Area3D.monitoring = true
@@ -44,25 +49,50 @@ func _physics_process(delta):
 	#print("direction => %s" + direction)
 	if direction:
 		velocity = direction * speed
-		
 	else:
 		velocity = Vector3.ZERO
 
+	if (velocity.z < 0):
+		player_anim.play_forward()
+	elif (velocity.z > 0):
+		player_anim.play_backwards()
+	
+	if (abs(velocity.x) > 0):
+		player_anim.play_crab()
+	
+	if (velocity.normalized().length() <= 0.05 ):
+		player_anim.play_idle()
+
 	move_and_slide()
 
+func setTartaCara(estado):
+	if (tieneTarta and estado):
+		$Timer.stop()
+		$Timer.start()
+	elif not estado:
+		$Timer.stop()
+		$AnimationPlayer.play("quitarTarta")
+		tieneTarta = false
+	elif not tieneTarta and estado:
+		$Tarta.visible = true
+		$AnimationPlayer.play("RESET")
+		$Timer.start()
+		tieneTarta = true
+		
+	
 
 func _on_area_entered(area):
-	print("Hola")
 	if (area.name.begins_with("Tarta")):
 		atrapaTarta.emit()
-		print("atrape una tarta")
 		area.die(name)
+		setTartaCara(true)
+
 	if (area.name.begins_with("Monociclo")):
 		$Label3D.visible = true
 		tocando_monociclo = true
 
-
-		
+func _on_timer_timeout():
+	setTartaCara(false)
 
 
 func _on_area_exited(area):

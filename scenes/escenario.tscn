@@ -1,11 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://0rgcm88dj4gf"]
+[gd_scene load_steps=28 format=3 uid="uid://0rgcm88dj4gf"]
 
 [ext_resource type="PackedScene" uid="uid://7lhhp3s64ijo" path="res://scenes/MovPlayer.tscn" id="1_ffufx"]
 [ext_resource type="Script" path="res://scripts/escenario.gd" id="1_ti8cr"]
 [ext_resource type="PackedScene" uid="uid://bjfn76crsuvhf" path="res://models/escenario.glb" id="2_oljt7"]
-[ext_resource type="PackedScene" uid="uid://ctt3bf107xdki" path="res://scenes/foco.tscn" id="3_fv01g"]
+[ext_resource type="PackedScene" path="res://scenes/foco.tscn" id="3_fv01g"]
 [ext_resource type="Script" path="res://scripts/FPScounter.gd" id="3_ijmp8"]
-[ext_resource type="PackedScene" uid="uid://b72vyf66b5fhw" path="res://scenes/generador.tscn" id="5_abt4a"]
+[ext_resource type="PackedScene" path="res://scenes/generador.tscn" id="5_abt4a"]
 [ext_resource type="Script" path="res://scripts/SueloColision.gd" id="6_ujukf"]
 [ext_resource type="PackedScene" uid="uid://cxsqnfus2clbm" path="res://scenes/laugh_bar.tscn" id="8_m27mm"]
 [ext_resource type="AudioStream" uid="uid://1qww1jrn1bvj" path="res://sfx/tartazo_1.mp3" id="9_aeajv"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://bqurul4ukh38j" path="res://sfx/tartazo_5.mp3" id="13_20sw2"]
 [ext_resource type="AudioStream" uid="uid://c31573rtgwe86" path="res://sfx/tartazo_6.mp3" id="14_xoo47"]
 [ext_resource type="AudioStream" uid="uid://c7x8n5xxynhu" path="res://sfx/tartazo_7.mp3" id="15_pmkju"]
+[ext_resource type="AudioStream" uid="uid://buvn4s8vv5tg3" path="res://music/Sound_Gameplay.mp3" id="16_307ba"]
 [ext_resource type="PackedScene" uid="uid://omrjjreuq8ue" path="res://models/spectators/CH_Spectator_1.glb" id="16_tth3w"]
 [ext_resource type="PackedScene" uid="uid://1ivp48yydp62" path="res://models/spectators/CH_Spectator_2.glb" id="17_4lcw3"]
 [ext_resource type="PackedScene" uid="uid://jp4rvmu4c8t7" path="res://models/spectators/CH_Spectator_3.glb" id="18_150wq"]
@@ -427,7 +428,12 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 47.515
 [node name="CH_Spectator_1" parent="PublicoF6" instance=ExtResource("16_tth3w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.64582, 0, 0)
 
+[node name="musica_escenario" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_307ba")
+autoplay = true
+
 [connection signal="atrapaTarta" from="Player" to="." method="_on_player_atrapa_tarta"]
 [connection signal="area_entered" from="SueloColision" to="SueloColision" method="_on_area_entered"]
 [connection signal="timeout" from="nivel_entr/timer_nivel_entr" to="." method="_on_timer_nivel_entr_timeout"]
 [connection signal="timeout" from="tiempo_juego" to="." method="fin_juego_timeout"]
+[connection signal="finished" from="musica_escenario" to="." method="_on_musica_escenario_finished"]

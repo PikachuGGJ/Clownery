@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxej5lmt43t41"]
+[gd_scene load_steps=10 format=3 uid="uid://cxej5lmt43t41"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_y5x7h"]
 [ext_resource type="Texture2D" uid="uid://bat5rlgdixneq" path="res://backgrounds/stage-background.jpg" id="2_0eel5"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://s00tltb6w1l1" path="res://sfx/click_2.mp3" id="4_yj7ig"]
 [ext_resource type="Texture2D" uid="uid://tiuk4rurtscx" path="res://images/cake_me_laugh.png" id="5_clvda"]
 [ext_resource type="PackedScene" uid="uid://b8gfdodu6arjw" path="res://models/logo.glb" id="6_5c88v"]
+[ext_resource type="Texture2D" uid="uid://bip6wpt1dwyb8" path="res://images/Solid_white.png" id="6_mbxul"]
 [ext_resource type="Script" path="res://scripts/logo.gd" id="7_8nu0r"]
 
 [sub_resource type="Environment" id="Environment_kwbqx"]
@@ -140,6 +141,12 @@ environment = SubResource("Environment_kwbqx")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, -0.996095, -0.088286, 0, 0.088286, -0.996095, 0, 16.7074, 0)
+
+[node name="SolidWhite" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-5.72205e-06, -150)
+scale = Vector2(0.96, 0.16)
+texture = ExtResource("6_mbxul")
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="credits" to="." method="_on_credits_pressed"]

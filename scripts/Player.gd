@@ -11,6 +11,11 @@ var tieneTarta = false
 signal atrapaTarta
 
 @onready var player_anim = $Player
+@onready var particulas : Array = [$Particulas1/AnimationPlayer, $Particulas2/AnimationPlayer, $Particulas3/AnimationPlayer, $Particulas4/AnimationPlayer]
+
+signal cogeMonociclo
+
+var tocando_monociclo = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -18,14 +23,18 @@ var t = 0
 
 func _ready():
 	$Area3D.monitoring = true
-	#gravity = 0
+	$Label3D.visible = false	#gravity = 0
 
 #func _input(event):
 	#if event is InputEventMouseMotion:
 		#rotate_y(deg_to_rad(event.relative.x * sens))
 		#pivote.rotate_x(deg_to_rad(event.relative.y * sens))
 		#pivote.rotation.x = clamp(pivote.rotation.x, deg_to_rad(-90), deg_to_rad(45))
-
+func _process(delta):
+	if Input.is_action_just_pressed("Pick") and tocando_monociclo:
+		print("Lo pille")
+		cogeMonociclo.emit()
+	
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -52,6 +61,9 @@ func _physics_process(delta):
 	
 	if (abs(velocity.x) > 0):
 		player_anim.play_crab()
+	
+	if (velocity.normalized().length() <= 0.05 ):
+		player_anim.play_crab()
 
 	move_and_slide()
 
@@ -59,6 +71,7 @@ func setTartaCara(estado):
 	if (tieneTarta and estado):
 		$Timer.stop()
 		$Timer.start()
+		play_tarta_animations()
 	elif not estado:
 		$Timer.stop()
 		$AnimationPlayer.play("quitarTarta")
@@ -68,6 +81,7 @@ func setTartaCara(estado):
 		$AnimationPlayer.play("RESET")
 		$Timer.start()
 		tieneTarta = true
+		play_tarta_animations()
 		
 	
 
@@ -77,6 +91,25 @@ func _on_area_entered(area):
 		area.die(name)
 		setTartaCara(true)
 
+	if (area.name.begins_with("Monociclo")):
+		$Label3D.visible = true
+		tocando_monociclo = true
 
 func _on_timer_timeout():
 	setTartaCara(false)
+
+
+func _on_area_exited(area):
+	if (area.name.begins_with("Monociclo")):
+		$Label3D.visible = false
+		tocando_monociclo = false
+
+
+func _on_coge_monociclo():
+	position.x = 0
+	position.z = 0
+	position.y += 10
+
+func play_tarta_animations():
+	for i in particulas:
+		i.play("Animation")

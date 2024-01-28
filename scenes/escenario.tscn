@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://0rgcm88dj4gf"]
+[gd_scene load_steps=16 format=3 uid="uid://0rgcm88dj4gf"]
 
 [ext_resource type="PackedScene" uid="uid://7lhhp3s64ijo" path="res://scenes/MovPlayer.tscn" id="1_ffufx"]
 [ext_resource type="Script" path="res://scripts/escenario.gd" id="1_ti8cr"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://c7x8n5xxynhu" path="res://sfx/tartazo_7.mp3" id="15_pmkju"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hmbbv"]
+sky_top_color = Color(0.384314, 0.454902, 0.501961, 1)
 sky_horizon_color = Color(0, 0, 0, 1)
 sky_cover_modulate = Color(0, 0, 0, 1)
 ground_bottom_color = Color(0, 0, 0, 1)
@@ -26,11 +27,10 @@ ground_horizon_color = Color(0, 0, 0, 1)
 sky_material = SubResource("ProceduralSkyMaterial_hmbbv")
 
 [sub_resource type="Environment" id="Environment_g2ofk"]
-background_energy_multiplier = 0.0
+background_mode = 2
+background_energy_multiplier = 0.4
 sky = SubResource("Sky_06g6k")
-ambient_light_color = Color(0.129412, 0.129412, 0.129412, 1)
 tonemap_mode = 2
-sdfgi_enabled = true
 glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v32ew"]
@@ -45,31 +45,6 @@ size = Vector3(114.074, 23.3065, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_m83l8"]
 size = Vector3(59.2645, 5.36414, 101.878)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2bmv2"]
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_vwk53"]
-material = SubResource("StandardMaterial3D_2bmv2")
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_w7sg5"]
-playback_mode = 1
-streams_count = 7
-stream_0/stream = ExtResource("9_aeajv")
-stream_0/weight = 1.0
-stream_1/stream = ExtResource("10_comso")
-stream_1/weight = 1.0
-stream_2/stream = ExtResource("11_48chi")
-stream_2/weight = 1.0
-stream_3/stream = ExtResource("12_mikc8")
-stream_3/weight = 1.0
-stream_4/stream = ExtResource("13_20sw2")
-stream_4/weight = 1.0
-stream_5/stream = ExtResource("14_xoo47")
-stream_5/weight = 1.0
-stream_6/stream = ExtResource("15_pmkju")
-stream_6/weight = 1.0
-
 [node name="Escenario" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_ti8cr")
@@ -81,6 +56,8 @@ environment = SubResource("Environment_g2ofk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4205, 8.79949, -0.790695)
 sens = 2.0
 speed = 30.0
+
+[node name="Label3D" type="Label3D" parent="Player"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0.273959, -0.961741, 0, 0.961741, 0.273959, 1, 1.19751e-08, -4.2039e-08, -39.38, 20.279, 0)
@@ -289,18 +266,6 @@ script = ExtResource("6_ujukf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3226, 2.18207, 2.6089)
 shape = SubResource("BoxShape3D_m83l8")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 3.55271e-15, 0, 42.2088, 12.0399, 49.2064, 3.60478)
-mesh = SubResource("BoxMesh_vwk53")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 3.55271e-15, 0, 42.2088, 35.2704, 49.2064, 3.60478)
-mesh = SubResource("BoxMesh_vwk53")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 3.55271e-15, 0, 42.2088, 60.4873, 49.2064, 3.60478)
-mesh = SubResource("BoxMesh_vwk53")
-
 [node name="nivel_entr" parent="." instance=ExtResource("8_m27mm")]
 offset_left = 2.0
 offset_top = -108.0
@@ -322,3 +287,4 @@ stream = SubResource("AudioStreamRandomizer_w7sg5")
 [connection signal="atrapaTarta" from="Player" to="." method="_on_player_atrapa_tarta"]
 [connection signal="area_entered" from="SueloColision" to="SueloColision" method="_on_area_entered"]
 [connection signal="timeout" from="nivel_entr/timer_nivel_entr" to="." method="_on_timer_nivel_entr_timeout"]
+[connection signal="timeout" from="tiempo_juego" to="." method="fin_juego_timeout"]

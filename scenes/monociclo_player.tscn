@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgnvhda4dp8p"]
+
+[ext_resource type="Script" path="res://scripts/Monociclo_Player.gd" id="1_0s0ox"]
+[ext_resource type="PackedScene" uid="uid://bj1u221t64ovd" path="res://models/personaje.gltf" id="2_bmb5s"]
+[ext_resource type="PackedScene" uid="uid://cjc6vx6fyqfi3" path="res://models/AS_Monocycle.glb" id="3_30gv7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t1n66"]
+size = Vector3(3.83357, 16.427, 4.41449)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4b0sg"]
+radius = 2.2034
+height = 18.5912
+
+[node name="Monociclo_Player" type="CharacterBody3D"]
+script = ExtResource("1_0s0ox")
+
+[node name="personaje" parent="." instance=ExtResource("2_bmb5s")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -9.65618, 18.375, 0.00709724)
+
+[node name="AS_Monocycle" parent="." instance=ExtResource("3_30gv7")]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.218843, 7.63274, -0.0780334)
+shape = SubResource("BoxShape3D_t1n66")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.284388, 7.44426, -0.0606613)
+shape = SubResource("CapsuleShape3D_4b0sg")

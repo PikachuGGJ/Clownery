@@ -7,20 +7,27 @@ const JUMP_VELOCITY = 4.5
 @export var speed = 5.0
 
 signal atrapaTarta
+signal cogeMonociclo
+
+var tocando_monociclo = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
 	$Area3D.monitoring = true
-	#gravity = 0
+	$Label3D.visible = false	#gravity = 0
 
 #func _input(event):
 	#if event is InputEventMouseMotion:
 		#rotate_y(deg_to_rad(event.relative.x * sens))
 		#pivote.rotate_x(deg_to_rad(event.relative.y * sens))
 		#pivote.rotation.x = clamp(pivote.rotation.x, deg_to_rad(-90), deg_to_rad(45))
-
+func _process(delta):
+	if Input.is_action_just_pressed("Pick") and tocando_monociclo:
+		print("Lo pille")
+		cogeMonociclo.emit()
+	
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -50,3 +57,21 @@ func _on_area_entered(area):
 		atrapaTarta.emit()
 		print("atrape una tarta")
 		area.die(name)
+	if (area.name.begins_with("Monociclo")):
+		$Label3D.visible = true
+		tocando_monociclo = true
+
+
+		
+
+
+func _on_area_exited(area):
+	if (area.name.begins_with("Monociclo")):
+		$Label3D.visible = false
+		tocando_monociclo = false
+
+
+func _on_coge_monociclo():
+	position.x = 0
+	position.z = 0
+	position.y += 10

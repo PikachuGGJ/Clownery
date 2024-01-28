@@ -1,0 +1,280 @@
+[gd_scene load_steps=18 format=3 uid="uid://0rgcm88dj4gf"]
+
+[ext_resource type="PackedScene" uid="uid://7lhhp3s64ijo" path="res://scenes/MovPlayer.tscn" id="1_ffufx"]
+[ext_resource type="Script" path="res://scripts/escenario.gd" id="1_ti8cr"]
+[ext_resource type="PackedScene" uid="uid://cci8xua4igsc1" path="res://models/escenario_borrador.glb" id="2_fqq2w"]
+[ext_resource type="PackedScene" path="res://scenes/foco.tscn" id="3_fv01g"]
+[ext_resource type="Script" path="res://scripts/FPScounter.gd" id="3_ijmp8"]
+[ext_resource type="PackedScene" path="res://scenes/generador.tscn" id="5_abt4a"]
+[ext_resource type="Script" path="res://scripts/SueloColision.gd" id="6_ujukf"]
+[ext_resource type="PackedScene" uid="uid://cxsqnfus2clbm" path="res://scenes/laugh_bar.tscn" id="8_m27mm"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hmbbv"]
+sky_horizon_color = Color(0, 0, 0, 1)
+sky_cover_modulate = Color(0, 0, 0, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_06g6k"]
+sky_material = SubResource("ProceduralSkyMaterial_hmbbv")
+
+[sub_resource type="Environment" id="Environment_g2ofk"]
+background_energy_multiplier = 0.0
+sky = SubResource("Sky_06g6k")
+ambient_light_color = Color(0.129412, 0.129412, 0.129412, 1)
+tonemap_mode = 2
+sdfgi_enabled = true
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v32ew"]
+size = Vector3(63.8638, 16.2489, 1.57642)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hxjgj"]
+size = Vector3(35.9353, 15.7949, 2.95953)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d63wp"]
+size = Vector3(114.074, 23.3065, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m83l8"]
+size = Vector3(59.2645, 5.36414, 101.878)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2bmv2"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vwk53"]
+material = SubResource("StandardMaterial3D_2bmv2")
+
+[node name="Escenario" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_ti8cr")
+
+[node name="GI" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_g2ofk")
+
+[node name="Player" parent="." instance=ExtResource("1_ffufx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4205, 10.0573, -0.790695)
+sens = 2.0
+speed = 30.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0.273959, -0.961741, 0, 0.961741, 0.273959, 1, 1.19751e-08, -4.2039e-08, -39.38, 20.279, 0)
+
+[node name="escenario_borrador" parent="." instance=ExtResource("2_fqq2w")]
+
+[node name="Foco" parent="." instance=ExtResource("3_fv01g")]
+transform = Transform3D(0.977314, -0.0986774, -0.187408, 0.189536, 0.802371, 0.565931, 0.0945263, -0.588612, 0.802871, -9.36681, 40.2209, -37.653)
+lightColor = Color(0, 1, 0, 1)
+lightRange = 53.0
+lightAngle = 40.0
+
+[node name="FPScounter" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -68.0
+offset_top = 24.0
+offset_right = -28.0
+offset_bottom = 47.0
+grow_horizontal = 0
+script = ExtResource("3_ijmp8")
+
+[node name="Puntos" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -68.0
+offset_top = 56.0
+offset_right = -28.0
+offset_bottom = 79.0
+grow_horizontal = 0
+
+[node name="InvWalls" type="Node3D" parent="."]
+
+[node name="Izquierda" type="StaticBody3D" parent="InvWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21668e-08, 0, -0.964664)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InvWalls/Izquierda"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65355, 11.6659, -46.9971)
+shape = SubResource("BoxShape3D_v32ew")
+
+[node name="Derecha" type="StaticBody3D" parent="InvWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.17846e-06, 0, 95.5919)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InvWalls/Derecha"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9309, 12.2314, -46.6958)
+shape = SubResource("BoxShape3D_hxjgj")
+
+[node name="Detras" type="StaticBody3D" parent="InvWalls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15.677, 0, 12.1984)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InvWalls/Detras"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9024, 11.1533, -46.275)
+shape = SubResource("BoxShape3D_d63wp")
+
+[node name="Frente" type="StaticBody3D" parent="InvWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8754, 0, -3.4786)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InvWalls/Frente"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -29.1435, 11.1533, 5.68116)
+shape = SubResource("BoxShape3D_d63wp")
+
+[node name="FocosEscenario" type="Node3D" parent="."]
+
+[node name="Foco1" parent="FocosEscenario" instance=ExtResource("3_fv01g")]
+transform = Transform3D(0.863685, 0.373639, -0.338294, -0.139948, 0.822554, 0.551198, 0.484214, -0.428717, 0.762717, -4.34315, 39.756, -31.9553)
+lightColor = Color(1, 0, 1, 1)
+lightRange = 53.0
+lightAngle = 40.0
+
+[node name="Foco2" parent="FocosEscenario" instance=ExtResource("3_fv01g")]
+transform = Transform3D(0.976432, 0.0222772, 0.21467, -0.139948, 0.822554, 0.551198, -0.164299, -0.56825, 0.806286, -15.7142, 40.6078, -42.1583)
+lightColor = Color(1, 0, 0, 1)
+lightRange = 53.0
+lightAngle = 40.0
+
+[node name="Foco3" parent="FocosEscenario" instance=ExtResource("3_fv01g")]
+transform = Transform3D(-0.950883, 0.248372, 0.184752, 0.303581, 0.86489, 0.399756, -0.0605021, 0.436209, -0.89781, -9.76419, 40.0986, 37.6458)
+lightColor = Color(0, 1, 0, 1)
+lightRange = 53.0
+lightAngle = 40.0
+
+[node name="Foco4" parent="FocosEscenario" instance=ExtResource("3_fv01g")]
+transform = Transform3D(-0.995116, 0.0702872, -0.0693176, 0.0316704, 0.892369, 0.450195, 0.0934997, 0.4458, -0.890236, -16.1292, 40.8593, 43.1115)
+lightColor = Color(1, 0, 1, 1)
+lightRange = 53.0
+lightAngle = 40.0
+
+[node name="Foco5" parent="FocosEscenario" instance=ExtResource("3_fv01g")]
+transform = Transform3D(-0.579308, 0.383437, -0.71929, 0.0316704, 0.892369, 0.450195, 0.814493, 0.238021, -0.5291, -4.69902, 39.5651, 33.0216)
+lightColor = Color(1, 0, 0, 1)
+lightRange = 53.0
+lightAngle = 40.0
+
+[node name="Foco6" parent="FocosEscenario" instance=ExtResource("3_fv01g")]
+transform = Transform3D(-0.579308, 0.383437, -0.71929, 0.0316704, 0.892369, 0.450195, 0.814493, 0.238021, -0.5291, -4.69902, 39.5651, 6.27213)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 53.0
+lightAngle = 40.0
+
+[node name="Foco7" parent="FocosEscenario" instance=ExtResource("3_fv01g")]
+transform = Transform3D(0.156223, 0.24637, -0.956502, 0.0652191, 0.963706, 0.258878, 0.985566, -0.102825, 0.134485, -2.92606, 39.5651, -14.3911)
+lightColor = Color(0.203922, 0.603922, 0.6, 1)
+lightRange = 53.0
+lightAngle = 40.0
+
+[node name="Foco8" parent="FocosEscenario" instance=ExtResource("3_fv01g")]
+transform = Transform3D(0.294783, 0.00103547, 0.955564, -0.476585, 0.866906, 0.146083, -0.828232, -0.498471, 0.256043, -2.92606, 39.5651, 18.9083)
+lightColor = Color(0.203922, 0.603922, 0.6, 1)
+lightRange = 50.0
+lightAngle = 40.0
+
+[node name="FocosPublicoDerecha" type="Node3D" parent="."]
+transform = Transform3D(1, -1.85541e-08, 4.13324e-09, 1.85541e-08, 0.905443, -0.424468, 4.13322e-09, 0.424468, 0.905443, 31.1745, 46.5416, 42.1119)
+
+[node name="Foco" parent="FocosPublicoDerecha" instance=ExtResource("3_fv01g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.97702, 0, 0)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 50.0
+lightAngle = 40.0
+
+[node name="Foco2" parent="FocosPublicoDerecha" instance=ExtResource("3_fv01g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 50.0
+lightAngle = 40.0
+
+[node name="Foco3" parent="FocosPublicoDerecha" instance=ExtResource("3_fv01g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3946, 0, 9.53674e-07)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 50.0
+lightAngle = 40.0
+
+[node name="Foco4" parent="FocosPublicoDerecha" instance=ExtResource("3_fv01g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9058, 0, 1.90735e-06)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 50.0
+lightAngle = 40.0
+
+[node name="Foco5" parent="FocosPublicoDerecha" instance=ExtResource("3_fv01g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.6851, 0, 1.16644e-06)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 50.0
+lightAngle = 40.0
+
+[node name="FocosPublicoIzquierda" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.905568, 0.424199, 0, -0.424199, 0.905568, 31.1745, 46.5416, -38.8825)
+
+[node name="Foco" parent="FocosPublicoIzquierda" instance=ExtResource("3_fv01g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.97702, 0, 0)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 50.0
+lightAngle = 40.0
+
+[node name="Foco2" parent="FocosPublicoIzquierda" instance=ExtResource("3_fv01g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 50.0
+lightAngle = 40.0
+
+[node name="Foco3" parent="FocosPublicoIzquierda" instance=ExtResource("3_fv01g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3946, 0, 9.53674e-07)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 50.0
+lightAngle = 40.0
+
+[node name="Foco4" parent="FocosPublicoIzquierda" instance=ExtResource("3_fv01g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9058, 0, 1.90735e-06)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 50.0
+lightAngle = 40.0
+
+[node name="Foco5" parent="FocosPublicoIzquierda" instance=ExtResource("3_fv01g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.6851, 0, 1.16644e-06)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 50.0
+lightAngle = 40.0
+
+[node name="Foco2" parent="." instance=ExtResource("3_fv01g")]
+transform = Transform3D(0.991892, -0.127082, -3.54397e-10, 0.127082, 0.991892, 5.55493e-09, -3.54405e-10, -5.55493e-09, 1, 92.924, 50.9854, 1.75057)
+lightColor = Color(1, 1, 0, 1)
+lightEnergy = 5.0
+lightRange = 50.0
+lightAngle = 40.0
+
+[node name="Generador" parent="." instance=ExtResource("5_abt4a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 10, 0)
+
+[node name="Timer" type="Timer" parent="Generador"]
+wait_time = 0.4
+autostart = true
+
+[node name="SueloColision" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("6_ujukf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SueloColision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3226, 2.18207, 2.6089)
+shape = SubResource("BoxShape3D_m83l8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 3.55271e-15, 0, 42.2088, 12.0399, 49.2064, 3.60478)
+mesh = SubResource("BoxMesh_vwk53")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 3.55271e-15, 0, 42.2088, 35.2704, 49.2064, 3.60478)
+mesh = SubResource("BoxMesh_vwk53")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 3.55271e-15, 0, 42.2088, 60.4873, 49.2064, 3.60478)
+mesh = SubResource("BoxMesh_vwk53")
+
+[node name="nivel_entr" parent="." instance=ExtResource("8_m27mm")]
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 2.0
+offset_bottom = 2.0
+
+[connection signal="atrapaTarta" from="Player" to="." method="_on_player_atrapa_tarta"]
+[connection signal="area_entered" from="SueloColision" to="SueloColision" method="_on_area_entered"]

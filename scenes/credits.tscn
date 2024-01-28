@@ -47,6 +47,7 @@ offset_right = 1109.0
 offset_bottom = 526.0
 
 [node name="linea" type="Label" parent="creditos_mov/contenedor"]
+layout_mode = 0
 offset_left = 218.0
 offset_top = 369.0
 offset_right = 258.0

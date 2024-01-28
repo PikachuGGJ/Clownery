@@ -29,3 +29,7 @@ func fin_juego_timeout():
 	ScoreManager.store_score(puntos)
 	ScoreManager.control_musica(true)
 	Telon.change_scene_to_file("res://scenes/scores.tscn")
+
+
+func _on_musica_escenario_finished():
+	$musica_escenario.play()

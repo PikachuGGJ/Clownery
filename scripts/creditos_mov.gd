@@ -34,10 +34,11 @@ var credits = [
 		"Nicolás Hideo Vílchez Imanishi"
 	],[
 		"Imágenes",
-		"https://unsplash.com/"
+		"https://unsplash.com/",
+		"https://www.publicdomainpictures.net/en/"
 	],[
 		"Música",
-		""
+		"Nicolás Hideo Vílchez Imanishi"
 	],[
 		"Efectos de sonido",
 		"Sergio Blas Ríos"

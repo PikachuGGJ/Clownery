@@ -4,3 +4,7 @@
 
 [node name="ScoreManager" type="Node"]
 script = ExtResource("1_ptfpn")
+
+[node name="requests" type="HTTPRequest" parent="."]
+
+[connection signal="request_completed" from="requests" to="." method="_on_requests_request_completed"]

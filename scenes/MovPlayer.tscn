@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://7lhhp3s64ijo"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_j4dm2"]
-[ext_resource type="PackedScene" uid="uid://bj1u221t64ovd" path="res://models/personaje.gltf" id="2_x1sfd"]
+[ext_resource type="PackedScene" uid="uid://djrqjgdmo7qbl" path="res://scenes/player.tscn" id="2_5m18s"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4la6o"]
 radius = 2.91399
@@ -16,8 +16,8 @@ collision_mask = 3
 script = ExtResource("1_j4dm2")
 speed = 15.0
 
-[node name="personaje" parent="." instance=ExtResource("2_x1sfd")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -9.77, 7.91, 0)
+[node name="Player" parent="." instance=ExtResource("2_5m18s")]
+transform = Transform3D(-1.66103e-07, 0, -3.8, 0, 3.8, 0, 3.8, 0, -1.66103e-07, 0.463531, -3.18974, -4.81165)
 
 [node name="BodyCollider" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_4la6o")

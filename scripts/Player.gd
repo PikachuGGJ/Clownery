@@ -8,6 +8,8 @@ const JUMP_VELOCITY = 4.5
 
 signal atrapaTarta
 
+@onready var player_anim = $Player
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -37,9 +39,16 @@ func _physics_process(delta):
 	#print("direction => %s" + direction)
 	if direction:
 		velocity = direction * speed
-		
 	else:
 		velocity = Vector3.ZERO
+
+	if (velocity.z < 0):
+		player_anim.play_forward()
+	elif (velocity.z > 0):
+		player_anim.play_backwards()
+	
+	if (abs(velocity.x) > 0):
+		player_anim.play_crab()
 
 	move_and_slide()
 

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dhf1lgkpdleqq"
-path="res://.godot/imported/animacion_de_personaje_principal_.glb-c612153c91064cca17ac60e7c676bcb3.scn"
+uid="uid://hjb81ra03lwf"
+path="res://.godot/imported/anda_adelante_.glb-7880f46d642e1c52ca6a2401a8ba679d.scn"
 
 [deps]
 
-source_file="res://models/animacion_de_personaje_principal_.glb"
-dest_files=["res://.godot/imported/animacion_de_personaje_principal_.glb-c612153c91064cca17ac60e7c676bcb3.scn"]
+source_file="res://models/player/anda_adelante_.glb"
+dest_files=["res://.godot/imported/anda_adelante_.glb-7880f46d642e1c52ca6a2401a8ba679d.scn"]
 
 [params]
 
@@ -29,12 +29,6 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:AnimationPlayer": {
-"import/skip_import": true
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

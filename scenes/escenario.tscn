@@ -52,7 +52,7 @@ script = ExtResource("1_ti8cr")
 environment = SubResource("Environment_g2ofk")
 
 [node name="Player" parent="." instance=ExtResource("1_ffufx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4205, 10.0573, -0.790695)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4205, 8.79949, -0.790695)
 sens = 2.0
 speed = 30.0
 

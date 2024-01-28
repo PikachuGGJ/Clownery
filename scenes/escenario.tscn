@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://7lhhp3s64ijo" path="res://scenes/MovPlayer.tscn" id="1_ffufx"]
 [ext_resource type="Script" path="res://scripts/escenario.gd" id="1_ti8cr"]
-[ext_resource type="PackedScene" uid="uid://cci8xua4igsc1" path="res://models/escenario_borrador.glb" id="2_fqq2w"]
-[ext_resource type="PackedScene" path="res://scenes/foco.tscn" id="3_fv01g"]
+[ext_resource type="PackedScene" uid="uid://bjfn76crsuvhf" path="res://models/escenario.glb" id="2_oljt7"]
+[ext_resource type="PackedScene" uid="uid://ctt3bf107xdki" path="res://scenes/foco.tscn" id="3_fv01g"]
 [ext_resource type="Script" path="res://scripts/FPScounter.gd" id="3_ijmp8"]
-[ext_resource type="PackedScene" path="res://scenes/generador.tscn" id="5_abt4a"]
+[ext_resource type="PackedScene" uid="uid://b72vyf66b5fhw" path="res://scenes/generador.tscn" id="5_abt4a"]
 [ext_resource type="Script" path="res://scripts/SueloColision.gd" id="6_ujukf"]
 [ext_resource type="PackedScene" uid="uid://cxsqnfus2clbm" path="res://scenes/laugh_bar.tscn" id="8_m27mm"]
 [ext_resource type="AudioStream" uid="uid://1qww1jrn1bvj" path="res://sfx/tartazo_1.mp3" id="9_aeajv"]
@@ -28,7 +28,7 @@ sky_material = SubResource("ProceduralSkyMaterial_hmbbv")
 
 [sub_resource type="Environment" id="Environment_g2ofk"]
 background_mode = 2
-background_energy_multiplier = 0.4
+background_energy_multiplier = 0.7
 sky = SubResource("Sky_06g6k")
 tonemap_mode = 2
 glow_enabled = true
@@ -66,6 +66,8 @@ stream_6/weight = 1.0
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_ti8cr")
 
+[node name="escenario" parent="." instance=ExtResource("2_oljt7")]
+
 [node name="GI" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_g2ofk")
 
@@ -78,8 +80,6 @@ speed = 30.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0.273959, -0.961741, 0, 0.961741, 0.273959, 1, 1.19751e-08, -4.2039e-08, -39.38, 20.279, 0)
-
-[node name="escenario_borrador" parent="." instance=ExtResource("2_fqq2w")]
 
 [node name="Foco" parent="." instance=ExtResource("3_fv01g")]
 transform = Transform3D(0.977314, -0.0986774, -0.187408, 0.189536, 0.802371, 0.565931, 0.0945263, -0.588612, 0.802871, -9.36681, 40.2209, -37.653)
@@ -198,34 +198,34 @@ lightAngle = 40.0
 transform = Transform3D(1, -1.85541e-08, 4.13324e-09, 1.85541e-08, 0.905443, -0.424468, 4.13322e-09, 0.424468, 0.905443, 31.1745, 46.5416, 42.1119)
 
 [node name="Foco" parent="FocosPublicoDerecha" instance=ExtResource("3_fv01g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.97702, 0, 0)
+transform = Transform3D(1, -3.55271e-15, 0, 8.47033e-22, 1, -3.88235e-22, 7.10543e-15, -5.43529e-22, 1, -9.97702, 0, -1.90735e-06)
 lightColor = Color(1, 1, 0, 1)
-lightRange = 50.0
-lightAngle = 40.0
+lightRange = 70.0
+lightAngle = 50.0
 
 [node name="Foco2" parent="FocosPublicoDerecha" instance=ExtResource("3_fv01g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+transform = Transform3D(1, -3.55271e-15, 0, 8.47033e-22, 1, -3.88235e-22, 7.10543e-15, -5.43529e-22, 1, 5, 0, 0)
 lightColor = Color(1, 1, 0, 1)
-lightRange = 50.0
-lightAngle = 40.0
+lightRange = 70.0
+lightAngle = 50.0
 
 [node name="Foco3" parent="FocosPublicoDerecha" instance=ExtResource("3_fv01g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3946, 0, 9.53674e-07)
+transform = Transform3D(1, -3.55271e-15, 0, 8.47033e-22, 1, -3.88235e-22, 7.10543e-15, -5.43529e-22, 1, 17.3946, 0, 0)
 lightColor = Color(1, 1, 0, 1)
-lightRange = 50.0
-lightAngle = 40.0
+lightRange = 70.0
+lightAngle = 50.0
 
 [node name="Foco4" parent="FocosPublicoDerecha" instance=ExtResource("3_fv01g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9058, 0, 1.90735e-06)
+transform = Transform3D(1, -3.55271e-15, 0, 8.47033e-22, 1, -3.88235e-22, 7.10543e-15, -5.43529e-22, 1, 31.9058, 0, 0)
 lightColor = Color(1, 1, 0, 1)
-lightRange = 50.0
-lightAngle = 40.0
+lightRange = 70.0
+lightAngle = 50.0
 
 [node name="Foco5" parent="FocosPublicoDerecha" instance=ExtResource("3_fv01g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.6851, 0, 1.16644e-06)
+transform = Transform3D(1, -3.55271e-15, 0, 8.47033e-22, 1, -3.88235e-22, 7.10543e-15, -5.43529e-22, 1, 46.6851, 0, 1.90735e-06)
 lightColor = Color(1, 1, 0, 1)
-lightRange = 50.0
-lightAngle = 40.0
+lightRange = 70.0
+lightAngle = 50.0
 
 [node name="FocosPublicoIzquierda" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.905568, 0.424199, 0, -0.424199, 0.905568, 31.1745, 46.5416, -38.8825)
@@ -233,39 +233,38 @@ transform = Transform3D(1, 0, 0, 0, 0.905568, 0.424199, 0, -0.424199, 0.905568, 
 [node name="Foco" parent="FocosPublicoIzquierda" instance=ExtResource("3_fv01g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.97702, 0, 0)
 lightColor = Color(1, 1, 0, 1)
-lightRange = 50.0
-lightAngle = 40.0
+lightRange = 70.0
+lightAngle = 50.0
 
 [node name="Foco2" parent="FocosPublicoIzquierda" instance=ExtResource("3_fv01g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
 lightColor = Color(1, 1, 0, 1)
-lightRange = 50.0
-lightAngle = 40.0
+lightRange = 70.0
+lightAngle = 50.0
 
 [node name="Foco3" parent="FocosPublicoIzquierda" instance=ExtResource("3_fv01g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3946, 0, 9.53674e-07)
 lightColor = Color(1, 1, 0, 1)
-lightRange = 50.0
-lightAngle = 40.0
+lightRange = 70.0
+lightAngle = 50.0
 
 [node name="Foco4" parent="FocosPublicoIzquierda" instance=ExtResource("3_fv01g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9058, 0, 1.90735e-06)
 lightColor = Color(1, 1, 0, 1)
-lightRange = 50.0
-lightAngle = 40.0
+lightRange = 70.0
+lightAngle = 50.0
 
 [node name="Foco5" parent="FocosPublicoIzquierda" instance=ExtResource("3_fv01g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.6851, 0, 1.16644e-06)
 lightColor = Color(1, 1, 0, 1)
-lightRange = 50.0
-lightAngle = 40.0
+lightRange = 70.0
+lightAngle = 50.0
 
 [node name="Foco2" parent="." instance=ExtResource("3_fv01g")]
 transform = Transform3D(0.991892, -0.127082, -3.54397e-10, 0.127082, 0.991892, 5.55493e-09, -3.54405e-10, -5.55493e-09, 1, 92.924, 50.9854, 1.75057)
 lightColor = Color(1, 1, 0, 1)
-lightEnergy = 5.0
-lightRange = 50.0
-lightAngle = 40.0
+lightRange = 60.0
+lightAngle = 50.0
 
 [node name="Generador" parent="." instance=ExtResource("5_abt4a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 10, 0)
@@ -300,6 +299,30 @@ autostart = true
 
 [node name="sfx_tarta" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_jpjdo")
+
+[node name="FocosPublicoDetras" type="Node3D" parent="."]
+
+[node name="Foco3" parent="FocosPublicoDetras" instance=ExtResource("3_fv01g")]
+transform = Transform3D(-0.050063, -0.390748, 0.919135, 0.116806, 0.911683, 0.393942, -0.991892, 0.127082, -4.01767e-08, 12.3158, 49.2271, -10.6692)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 70.0
+lightAngle = 60.0
+
+[node name="Foco4" parent="FocosPublicoDetras" instance=ExtResource("3_fv01g")]
+transform = Transform3D(-0.050063, -0.390748, 0.919135, 0.116806, 0.911683, 0.393942, -0.991892, 0.127082, -4.01767e-08, 12.7648, 50.8512, 3.79418)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 70.0
+lightAngle = 60.0
+
+[node name="Foco5" parent="FocosPublicoDetras" instance=ExtResource("3_fv01g")]
+transform = Transform3D(-0.050063, -0.390748, 0.919135, 0.116806, 0.911683, 0.393942, -0.991892, 0.127082, -4.01767e-08, 12.6028, 50.9854, 22.0717)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 70.0
+lightAngle = 60.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.0283927, 0, -0.999597, 0, 1, 0, 0.999597, 0, 0.0283927, 0, 12.8541, 0)
+visible = false
 
 [connection signal="atrapaTarta" from="Player" to="." method="_on_player_atrapa_tarta"]
 [connection signal="area_entered" from="SueloColision" to="SueloColision" method="_on_area_entered"]

@@ -45,6 +45,9 @@ func get_scoreboard() -> Array:
 func get_current_score():
 	return currentScore
 
+func get_current_player():
+	return currentPlayer
+
 func _on_musica_menu_finished():
 	$musica_menu.play()
 	

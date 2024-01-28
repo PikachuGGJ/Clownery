@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://d16qdag0yl06g"]
+
+[ext_resource type="Script" path="res://scripts/leaderboard.gd" id="1_a7lfo"]
+[ext_resource type="FontFile" uid="uid://dxs0aqx3q488d" path="res://fonts/Inconsolata-VariableFont_wdth,wght.ttf" id="2_hnkqw"]
+[ext_resource type="AudioStream" uid="uid://s00tltb6w1l1" path="res://sfx/click_2.mp3" id="4_yys5b"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a7lfo")
+
+[node name="leaderBoard" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -291.0
+offset_right = 364.0
+offset_bottom = 212.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_hnkqw")
+bbcode_enabled = true
+
+[node name="click_boton" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_yys5b")
+
+[node name="back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -69.0
+offset_top = -101.0
+offset_right = 69.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back"
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

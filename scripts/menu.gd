@@ -18,3 +18,12 @@ func _on_exit_pressed():
 func _on_credits_pressed():
 	$click_boton.play()
 	Telon.change_scene_to_file("res://scenes/credits.tscn")
+
+
+func _on_intrucciones_pressed():
+	$click_boton.play()
+	Telon.change_scene_to_file("res://scenes/instrucciones.tscn")
+
+func _on_leaderboard_pressed():
+	$click_boton.play()
+	Telon.change_scene_to_file("res://scenes/leaderboard.tscn")

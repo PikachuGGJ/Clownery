@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bs4k5cpswgr6d"]
+
+[ext_resource type="Texture2D" uid="uid://discay0qwqh6v" path="res://images/instrucciones.jpg" id="1_8cccc"]
+[ext_resource type="Script" path="res://scripts/instrucciones.gd" id="1_pi4yk"]
+[ext_resource type="Theme" uid="uid://cxdnyqlxku3w2" path="res://themes/button_theme.tres" id="3_s5t8w"]
+[ext_resource type="AudioStream" uid="uid://s00tltb6w1l1" path="res://sfx/click_2.mp3" id="5_6ttnu"]
+
+[node name="Instrucciones" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pi4yk")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(571, 322)
+scale = Vector2(0.625623, 0.603049)
+texture = ExtResource("1_8cccc")
+
+[node name="back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 589.0
+offset_top = 446.0
+offset_right = 689.0
+offset_bottom = 489.0
+grow_vertical = 0
+theme = ExtResource("3_s5t8w")
+text = "Back
+"
+
+[node name="click_boton" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_6ttnu")
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

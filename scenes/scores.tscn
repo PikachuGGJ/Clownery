@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c325efq2kl2le"]
+[gd_scene load_steps=5 format=3 uid="uid://c325efq2kl2le"]
 
 [ext_resource type="Script" path="res://scripts/scores.gd" id="1_ldjr2"]
 [ext_resource type="Texture2D" uid="uid://c7holngxwgrya" path="res://backgrounds/foco.jpg" id="1_nfw7m"]
+[ext_resource type="FontFile" uid="uid://dxs0aqx3q488d" path="res://fonts/Inconsolata-VariableFont_wdth,wght.ttf" id="3_0x3lk"]
 [ext_resource type="Theme" uid="uid://cxdnyqlxku3w2" path="res://themes/button_theme.tres" id="3_ra7aj"]
 
 [node name="Scores" type="Node2D"]
@@ -17,6 +18,7 @@ offset_left = 129.0
 offset_top = 31.0
 offset_right = 391.0
 offset_bottom = 582.0
+theme_override_fonts/normal_font = ExtResource("3_0x3lk")
 bbcode_enabled = true
 
 [node name="end_message" type="RichTextLabel" parent="."]

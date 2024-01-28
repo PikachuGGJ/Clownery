@@ -11,7 +11,8 @@ func set_player_name(pname):
 	currentPlayer= pname
 
 func store_score(score):
-	scores[currentPlayer] = score
+	if((scores[currentPlayer] < score) and (score != null)):
+		scores[currentPlayer] = score
 
 func save_data():
 	var file = FileAccess.open("user://settings.json", FileAccess.WRITE)
@@ -38,3 +39,12 @@ func get_scoreboard() -> Array:
 
 func get_current_score():
 	return scores[currentPlayer]
+
+func _on_musica_menu_finished():
+	$musica_menu.play()
+	
+func control_musica(estado :bool):
+	if(estado):
+		$musica_menu.play()
+	else:
+		$musica_menu.stop()

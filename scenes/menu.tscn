@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxej5lmt43t41"]
+[gd_scene load_steps=6 format=3 uid="uid://cxej5lmt43t41"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_y5x7h"]
 [ext_resource type="Texture2D" uid="uid://bat5rlgdixneq" path="res://backgrounds/stage-background.jpg" id="2_0eel5"]
 [ext_resource type="Theme" uid="uid://cxdnyqlxku3w2" path="res://themes/button_theme.tres" id="3_n37d7"]
 [ext_resource type="AudioStream" uid="uid://s00tltb6w1l1" path="res://sfx/click_2.mp3" id="4_yj7ig"]
+[ext_resource type="Texture2D" uid="uid://tiuk4rurtscx" path="res://images/cake_me_laugh.png" id="5_clvda"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -97,6 +98,12 @@ scroll_active = false
 
 [node name="click_boton" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_yj7ig")
+
+[node name="CakeMeLaugh" type="Sprite2D" parent="."]
+position = Vector2(-219, -203)
+rotation = -0.598648
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("5_clvda")
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="credits" to="." method="_on_credits_pressed"]

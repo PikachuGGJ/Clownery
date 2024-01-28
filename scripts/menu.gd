@@ -6,6 +6,7 @@ func _on_play_pressed():
 		$ErrorMsg.set_text("")
 		ScoreManager.set_player_name($username.get_text())
 		Telon.change_scene_to_file("res://scenes/escenario.tscn")
+		ScoreManager.control_musica(false)
 	else:
 		$ErrorMsg.set_text("[center][color=red]Introduce un nombre de usuario[/color][/center]")
 

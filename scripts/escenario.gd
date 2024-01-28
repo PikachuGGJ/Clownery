@@ -27,4 +27,5 @@ func _process(delta):
 
 func fin_juego_timeout():
 	ScoreManager.store_score(puntos)
+	ScoreManager.control_musica(true)
 	Telon.change_scene_to_file("res://scenes/scores.tscn")

@@ -37,13 +37,13 @@ func _process(delta):
 	else:
 		rotation_speed = 1.0
 	
-	if (num_izq > rng.randf_range(15,25) and not girar_der):
+	if (num_izq > rng.randf_range(7,15) and not girar_der):
 		girar_izq = true
 		girar_der = false
 		num_izq = 0
 		t = 0
 	
-	if (num_der > rng.randf_range(15,25) and not girar_izq):
+	if (num_der > rng.randf_range(7,15) and not girar_izq):
 		girar_izq = false
 		girar_der = true
 		num_der = 0
@@ -80,7 +80,7 @@ func _process(delta):
 		die()
 		
 	if (abs(rotation.z) < 1.45 and visible):
-		var puntos = (1.45 - abs(rotation.z))/3
+		var puntos = ((14.5 - abs(rotation.z)) / 1.5) * delta
 		nivel.actualizar_niv_entr(puntos)
 	
 
@@ -92,7 +92,7 @@ func _on_timer_timeout():
 	termina_monociclo.emit()
 	timer.stop()
 	visible = false
-	nivel.actualizar_niv_entr(30)
+	nivel.actualizar_niv_entr(12)
 	escenario.cambiar_puntos(30)
 
 func die():
@@ -102,14 +102,15 @@ func die():
 	termina_monociclo.emit()
 	timer.stop()
 	visible = false
-	nivel.actualizar_niv_entr(-35)
+	nivel.actualizar_niv_entr(-50)
 	escenario.cambiar_puntos(-10)
+	
 	
 	
 func _on_player_coge_monociclo():
 	visible = true
 	rotation.z = 0
-	timer.set_wait_time(15)
+	timer.set_wait_time(8)
 	timer.start()
 	fin = false
 	num_izq = 0

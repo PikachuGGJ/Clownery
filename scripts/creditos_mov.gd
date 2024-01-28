@@ -35,7 +35,9 @@ var credits = [
 	],[
 		"Imágenes",
 		"https://unsplash.com/",
-		"https://www.publicdomainpictures.net/en/"
+		"https://www.publicdomainpictures.net/en/",
+		"https://pngimg.es/",
+		"https://www.istockphoto.com/es"
 	],[
 		"Música",
 		"Nicolás Hideo Vílchez Imanishi"
@@ -43,6 +45,10 @@ var credits = [
 		"Efectos de sonido",
 		"Sergio Blas Ríos"
 	],[
+		"Fuentes",
+		"Inconsolata Monospace"
+	],
+	[
 		"Herramientas",
 		"Desarrollado con Godot Engine",
 		"https://godotengine.org/license",

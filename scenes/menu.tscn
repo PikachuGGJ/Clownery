@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_y5x7h"]
 [ext_resource type="Texture2D" uid="uid://bat5rlgdixneq" path="res://backgrounds/stage-background.jpg" id="2_0eel5"]
-[ext_resource type="Theme" uid="uid://cn0dctns0w8hl" path="res://themes/button_theme.tres" id="3_n37d7"]
+[ext_resource type="Theme" uid="uid://cxdnyqlxku3w2" path="res://themes/button_theme.tres" id="3_n37d7"]
 [ext_resource type="AudioStream" uid="uid://s00tltb6w1l1" path="res://sfx/click_2.mp3" id="4_yj7ig"]
-[ext_resource type="Texture2D" uid="uid://tiuk4rurtscx" path="res://images/cake_me_laugh.png" id="5_clvda"]
-[ext_resource type="PackedScene" uid="uid://b8gfdodu6arjw" path="res://models/logo.glb" id="6_5c88v"]
-[ext_resource type="Texture2D" uid="uid://bip6wpt1dwyb8" path="res://images/Solid_white.png" id="6_mbxul"]
+[ext_resource type="Texture2D" path="res://images/cake_me_laugh.png" id="5_clvda"]
+[ext_resource type="PackedScene" path="res://models/logo.glb" id="6_5c88v"]
+[ext_resource type="Texture2D" path="res://images/Solid_white.png" id="6_mbxul"]
 [ext_resource type="Script" path="res://scripts/logo.gd" id="7_8nu0r"]
 
 [sub_resource type="Environment" id="Environment_kwbqx"]

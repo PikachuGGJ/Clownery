@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cgnvhda4dp8p"]
+[gd_scene load_steps=40 format=3 uid="uid://d3enhjt810gtu"]
 
 [ext_resource type="Script" path="res://scripts/Monociclo_Player.gd" id="1_0s0ox"]
 [ext_resource type="PackedScene" uid="uid://cjc6vx6fyqfi3" path="res://models/AS_Monocycle.glb" id="3_30gv7"]

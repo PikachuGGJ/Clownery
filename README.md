@@ -1,15 +1,11 @@
 # Clownery - Granada Global Game Jam 2024
-https://unsplash.com/license
 **Attributions:**
 
-All sounds from the game are from [freesound.org](https://freesound.org)
+All sounds from the game are our personal recordings
 
-* Enigmatic Polyphony by [Igor Chagas](https://freesound.org/people/IgorChagas/) - License: https://creativecommons.org/licenses/by/4.0/legalcode
-* Jumping sounds by [TaraMG](https://freesound.org/people/TaraMG/) - License: https://creativecommons.org/licenses/by/3.0/legalcode
+Images:
+* Red Cinema Chair by [Felix Mooneeram](https://unsplash.com/@felixmooneeram) - https://unsplash.com/license
+* Spot Light Turned On by [Paul Green](https://unsplash.com/@pgreen1983) - https://unsplash.com/license
 
 Fonts:
 
-* Joystix - https://www.1001fonts.com/joystix-font.html#license
-
-* BPdots https://www.fontsquirrel.com/license/BPdots
-* Lunchds by codeman38

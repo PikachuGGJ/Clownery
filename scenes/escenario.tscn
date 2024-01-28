@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://0rgcm88dj4gf"]
+[gd_scene load_steps=27 format=3 uid="uid://0rgcm88dj4gf"]
 
 [ext_resource type="PackedScene" uid="uid://7lhhp3s64ijo" path="res://scenes/MovPlayer.tscn" id="1_ffufx"]
 [ext_resource type="Script" path="res://scripts/escenario.gd" id="1_ti8cr"]
@@ -15,6 +15,9 @@
 [ext_resource type="AudioStream" uid="uid://bqurul4ukh38j" path="res://sfx/tartazo_5.mp3" id="13_20sw2"]
 [ext_resource type="AudioStream" uid="uid://c31573rtgwe86" path="res://sfx/tartazo_6.mp3" id="14_xoo47"]
 [ext_resource type="AudioStream" uid="uid://c7x8n5xxynhu" path="res://sfx/tartazo_7.mp3" id="15_pmkju"]
+[ext_resource type="PackedScene" uid="uid://omrjjreuq8ue" path="res://models/spectators/CH_Spectator_1.glb" id="16_tth3w"]
+[ext_resource type="PackedScene" uid="uid://1ivp48yydp62" path="res://models/spectators/CH_Spectator_2.glb" id="17_4lcw3"]
+[ext_resource type="PackedScene" uid="uid://jp4rvmu4c8t7" path="res://models/spectators/CH_Spectator_3.glb" id="18_150wq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hmbbv"]
 sky_top_color = Color(0.384314, 0.454902, 0.501961, 1)
@@ -80,6 +83,7 @@ speed = 30.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0.273959, -0.961741, 0, 0.961741, 0.273959, 1, 1.19751e-08, -4.2039e-08, -39.38, 20.279, 0)
+current = true
 
 [node name="Foco" parent="." instance=ExtResource("3_fv01g")]
 transform = Transform3D(0.977314, -0.0986774, -0.187408, 0.189536, 0.802371, 0.565931, 0.0945263, -0.588612, 0.802871, -9.36681, 40.2209, -37.653)
@@ -293,7 +297,7 @@ wait_time = 0.5
 autostart = true
 
 [node name="tiempo_juego" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 30.0
 one_shot = true
 autostart = true
 
@@ -320,9 +324,108 @@ lightColor = Color(1, 1, 0, 1)
 lightRange = 70.0
 lightAngle = 60.0
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.0283927, 0, -0.999597, 0, 1, 0, 0.999597, 0, 0.0283927, 0, 12.8541, 0)
-visible = false
+[node name="PublicoF1" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 23.8955, 0.11107, -28.3116)
+
+[node name="F11" parent="PublicoF1" instance=ExtResource("16_tth3w")]
+
+[node name="F12" parent="PublicoF1" instance=ExtResource("16_tth3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0128, 0, 0)
+
+[node name="F13" parent="PublicoF1" instance=ExtResource("16_tth3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5464, 0, 0)
+
+[node name="F14" parent="PublicoF1" instance=ExtResource("16_tth3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.1846, 0, 0)
+
+[node name="F15" parent="PublicoF1" instance=ExtResource("17_4lcw3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6852, 0, 0)
+
+[node name="mickey1" parent="PublicoF1" instance=ExtResource("18_150wq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1238, 0, 0)
+
+[node name="mickey2" parent="PublicoF1" instance=ExtResource("18_150wq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.7072, 0, 0)
+
+[node name="PublicoF2" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 71.9522, 22.9955, -28.3116)
+
+[node name="F11" parent="PublicoF2" instance=ExtResource("16_tth3w")]
+
+[node name="F12" parent="PublicoF2" instance=ExtResource("16_tth3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0128, 0, 0)
+
+[node name="F13" parent="PublicoF2" instance=ExtResource("16_tth3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5464, 0, 0)
+
+[node name="F14" parent="PublicoF2" instance=ExtResource("16_tth3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.1846, 0, 0)
+
+[node name="F15" parent="PublicoF2" instance=ExtResource("17_4lcw3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6852, 0, 0)
+
+[node name="mickey1" parent="PublicoF2" instance=ExtResource("18_150wq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1238, 0, 0)
+
+[node name="mickey2" parent="PublicoF2" instance=ExtResource("18_150wq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.7072, 0, 0)
+
+[node name="PublicoF3" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 41.855, 11.7411, -28.3116)
+
+[node name="F11" parent="PublicoF3" instance=ExtResource("16_tth3w")]
+
+[node name="F12" parent="PublicoF3" instance=ExtResource("16_tth3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0128, 0, 0)
+
+[node name="F13" parent="PublicoF3" instance=ExtResource("16_tth3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5464, 0, 0)
+
+[node name="F14" parent="PublicoF3" instance=ExtResource("16_tth3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.1846, 0, 0)
+
+[node name="F15" parent="PublicoF3" instance=ExtResource("17_4lcw3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6852, 0, 0)
+
+[node name="mickey1" parent="PublicoF3" instance=ExtResource("18_150wq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1238, 0, 0)
+
+[node name="mickey2" parent="PublicoF3" instance=ExtResource("18_150wq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.7072, 0, 0)
+
+[node name="PublicoF4" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 32.7869, 7.81856, -28.3116)
+
+[node name="CH_Spectator_1" parent="PublicoF4" instance=ExtResource("16_tth3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.64582, 0, 0)
+
+[node name="CH_Spectator_2" parent="PublicoF4" instance=ExtResource("17_4lcw3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.3324, 0, -0.00496674)
+
+[node name="CH_Spectator_4" parent="PublicoF4" instance=ExtResource("17_4lcw3")]
+
+[node name="CH_Spectator_5" parent="PublicoF4" instance=ExtResource("17_4lcw3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0429, 0, 0)
+
+[node name="CH_Spectator_3" parent="PublicoF4" instance=ExtResource("18_150wq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.7866, 0, 0)
+
+[node name="PublicoF5" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 60.8923, 18.645, -18.4992)
+
+[node name="CH_Spectator_1" parent="PublicoF5" instance=ExtResource("16_tth3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.64582, 0, 0)
+
+[node name="CH_Spectator_4" parent="PublicoF5" instance=ExtResource("17_4lcw3")]
+
+[node name="CH_Spectator_5" parent="PublicoF5" instance=ExtResource("17_4lcw3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0429, 0, 0)
+
+[node name="PublicoF6" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 47.5154, 15.546, 1.08477)
+
+[node name="CH_Spectator_1" parent="PublicoF6" instance=ExtResource("16_tth3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.64582, 0, 0)
 
 [connection signal="atrapaTarta" from="Player" to="." method="_on_player_atrapa_tarta"]
 [connection signal="area_entered" from="SueloColision" to="SueloColision" method="_on_area_entered"]

@@ -1,6 +1,7 @@
 extends Node
 
 @export var currentPlayer : String
+@export var currentScore : int
 
 var scores : Dictionary = {}
 
@@ -11,7 +12,11 @@ func set_player_name(pname):
 	currentPlayer= pname
 
 func store_score(score):
-	if((scores[currentPlayer] < score) and (score != null)):
+	currentScore = score
+	if (scores.has(currentPlayer)):
+		if (scores[currentPlayer] < score):
+			scores[currentPlayer] = score
+	else:
 		scores[currentPlayer] = score
 
 func save_data():
@@ -38,7 +43,7 @@ func get_scoreboard() -> Array:
 	return ordered
 
 func get_current_score():
-	return scores[currentPlayer]
+	return currentScore
 
 func _on_musica_menu_finished():
 	$musica_menu.play()

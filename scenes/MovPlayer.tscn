@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://7lhhp3s64ijo"]
+[gd_scene load_steps=9 format=3 uid="uid://7lhhp3s64ijo"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_j4dm2"]
 [ext_resource type="PackedScene" uid="uid://bj1u221t64ovd" path="res://models/personaje.gltf" id="2_x1sfd"]
+[ext_resource type="PackedScene" uid="uid://d0haupjkl6jn3" path="res://models/AS_Cake.glb" id="3_7udw5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4la6o"]
 radius = 2.91399
@@ -9,6 +10,49 @@ height = 11.0941
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c4qiy"]
 size = Vector3(7.80029, 13.1731, 9.09546)
+
+[sub_resource type="Animation" id="Animation_x64p4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tarta:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_eyrw1"]
+resource_name = "quitarTarta"
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("Tarta")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array()
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tarta:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0.5, 0.5, 0.5), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nelpg"]
+_data = {
+"RESET": SubResource("Animation_x64p4"),
+"quitarTarta": SubResource("Animation_eyrw1")
+}
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 3
@@ -30,4 +74,17 @@ collision_mask = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.422607, -0.255005, 0.295288)
 shape = SubResource("BoxShape3D_c4qiy")
 
+[node name="Tarta" parent="." instance=ExtResource("3_7udw5")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 2.1948, 3.91709, 0)
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nelpg")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,1 +1,11 @@
 # Clownery - Granada Global Game Jam 2024
+**Attributions:**
+
+All sounds from the game are our personal recordings
+
+Images:
+* Red Cinema Chair by [Felix Mooneeram](https://unsplash.com/@felixmooneeram) - https://unsplash.com/license
+* Spot Light Turned On by [Paul Green](https://unsplash.com/@pgreen1983) - https://unsplash.com/license
+
+Fonts:
+

@@ -1206,13 +1206,12 @@ _data = {
 "anim": SubResource("Animation_smrwf")
 }
 
-[node name="Player" type="Node3D" node_paths=PackedStringArray("crab_anim", "forward_anim", "backwards_anim", "idle_anim", "monocicle_anim")]
+[node name="Player" type="Node3D" node_paths=PackedStringArray("crab_anim", "forward_anim", "backwards_anim", "monocicle_anim")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.29376, -0.26403, -0.183833)
 script = ExtResource("1_htib4")
 crab_anim = NodePath("cangrejo_con_colores/crab")
 forward_anim = NodePath("cangrejo_con_colores/forwards")
 backwards_anim = NodePath("cangrejo_con_colores/backwards")
-idle_anim = NodePath("cangrejo_con_colores/idle")
 monocicle_anim = NodePath("cangrejo_con_colores/equilibrium")
 
 [node name="cangrejo_con_colores" type="Node3D" parent="."]

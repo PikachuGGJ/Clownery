@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dalew25o8rwfx"]
+[gd_scene load_steps=6 format=3 uid="uid://dalew25o8rwfx"]
 
 [ext_resource type="Script" path="res://scripts/credits.gd" id="1_m7kp4"]
 [ext_resource type="Texture2D" uid="uid://cdutvtb7jvovq" path="res://backgrounds/butacas.jpg" id="2_sr8lj"]
 [ext_resource type="Theme" uid="uid://cxdnyqlxku3w2" path="res://themes/button_theme.tres" id="3_68mx5"]
 [ext_resource type="Script" path="res://scripts/creditos_mov.gd" id="4_x5ctw"]
+[ext_resource type="AudioStream" uid="uid://s00tltb6w1l1" path="res://sfx/click_2.mp3" id="5_sucjv"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -52,5 +53,8 @@ offset_left = 218.0
 offset_top = 369.0
 offset_right = 258.0
 offset_bottom = 392.0
+
+[node name="click_boton" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_sucjv")
 
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]

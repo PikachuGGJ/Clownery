@@ -1,0 +1,115 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxej5lmt43t41"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_y5x7h"]
+[ext_resource type="Texture2D" uid="uid://bat5rlgdixneq" path="res://backgrounds/stage-background.jpg" id="2_0eel5"]
+[ext_resource type="Theme" uid="uid://cxdnyqlxku3w2" path="res://themes/button_theme.tres" id="3_n37d7"]
+[ext_resource type="AudioStream" uid="uid://s00tltb6w1l1" path="res://sfx/click_2.mp3" id="4_yj7ig"]
+[ext_resource type="Texture2D" uid="uid://tiuk4rurtscx" path="res://images/cake_me_laugh.png" id="5_clvda"]
+[ext_resource type="AudioStream" uid="uid://1qww1jrn1bvj" path="res://sfx/tartazo_1.mp3" id="6_6dqyu"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -197.0
+offset_bottom = -197.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_y5x7h")
+
+[node name="background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-0.0155661, -122.437)
+scale = Vector2(0.576443, 0.576443)
+texture = ExtResource("2_0eel5")
+
+[node name="play" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -80.0
+offset_right = 50.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_n37d7")
+text = "Play"
+
+[node name="credits" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -20.0
+offset_right = 50.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_n37d7")
+text = "Credits"
+
+[node name="exit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 41.0
+offset_right = 50.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_n37d7")
+text = "Exit"
+
+[node name="username" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = -100.0
+offset_top = -170.0
+offset_right = 100.0
+offset_bottom = -130.0
+
+[node name="ErrorMsg" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -246.0
+offset_top = -120.0
+offset_right = 246.0
+offset_bottom = -89.0
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
+scroll_active = false
+
+[node name="click_boton" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_yj7ig")
+
+[node name="CakeMeLaugh" type="Sprite2D" parent="."]
+position = Vector2(-219, -203)
+rotation = -0.598648
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("5_clvda")
+
+[node name="musica_menu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_6dqyu")
+autoplay = true
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

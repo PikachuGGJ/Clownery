@@ -11,7 +11,6 @@ var speed_up := false
 
 @onready var line := $contenedor/linea
 var started := false
-var finished := false
 
 var section
 var section_next := true
@@ -25,20 +24,24 @@ var credits = [
 		"Un juego del Equipo Pikachu"
 	],[
 		"Programación",
-		"Salvador Romero",
+		"Salvador Romero Cortés",
 		"Marcos Rico Guerra",
-		"Miguel",
+		"Miguel Garbín Batanero",
 		"Sergio Blas Ríos"
 	],[
 		"Arte",
-		"Maite",
-		"Nico"
+		"María Teresa Cañada Cámara",
+		"Nicolás Hideo Vílchez Imanishi"
+	],[
+		"Imágenes",
+		"https://unsplash.com/",
+		"https://www.publicdomainpictures.net/en/"
 	],[
 		"Música",
-		"Dog Park by Louie Zong"
+		"Nicolás Hideo Vílchez Imanishi"
 	],[
 		"Efectos de sonido",
-		"freesound.org"
+		"Sergio Blas Ríos"
 	],[
 		"Herramientas",
 		"Desarrollado con Godot Engine",
@@ -80,15 +83,6 @@ func _process(delta):
 			if l.position.y < -l.get_line_height():
 				lines.erase(l)
 				l.queue_free()
-	elif started:
-		finish()
-
-
-func finish():
-	if not finished:
-		finished = true
-		# This is called when the credits finish and returns to the main menu
-		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 
 func add_line():
@@ -108,8 +102,6 @@ func add_line():
 
 
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_cancel"):
-		finish()
 	if event.is_action_pressed("ui_down") and !event.is_echo():
 		speed_up = true
 	if event.is_action_released("ui_down") and !event.is_echo():

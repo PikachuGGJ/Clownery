@@ -1,0 +1,442 @@
+[gd_scene load_steps=28 format=3 uid="uid://du0csb5w14xsk"]
+
+[ext_resource type="PackedScene" uid="uid://7lhhp3s64ijo" path="res://scenes/MovPlayer.tscn" id="1_ffufx"]
+[ext_resource type="Script" path="res://scripts/escenario.gd" id="1_ti8cr"]
+[ext_resource type="PackedScene" uid="uid://bjfn76crsuvhf" path="res://models/escenario.glb" id="2_oljt7"]
+[ext_resource type="PackedScene" uid="uid://ctt3bf107xdki" path="res://scenes/foco.tscn" id="3_fv01g"]
+[ext_resource type="Script" path="res://scripts/FPScounter.gd" id="3_ijmp8"]
+[ext_resource type="PackedScene" uid="uid://b72vyf66b5fhw" path="res://scenes/generador.tscn" id="5_abt4a"]
+[ext_resource type="Script" path="res://scripts/SueloColision.gd" id="6_ujukf"]
+[ext_resource type="PackedScene" path="res://scenes/laugh_bar.tscn" id="8_m27mm"]
+[ext_resource type="AudioStream" uid="uid://1qww1jrn1bvj" path="res://sfx/tartazo_1.mp3" id="9_aeajv"]
+[ext_resource type="AudioStream" uid="uid://yolovfflodjy" path="res://sfx/tartazo_2.mp3" id="10_comso"]
+[ext_resource type="AudioStream" uid="uid://bb0un6kwnwhq4" path="res://sfx/tartazo_3.mp3" id="11_48chi"]
+[ext_resource type="AudioStream" uid="uid://rvxr2ryfso0f" path="res://sfx/tartazo_4.mp3" id="12_mikc8"]
+[ext_resource type="AudioStream" uid="uid://bqurul4ukh38j" path="res://sfx/tartazo_5.mp3" id="13_20sw2"]
+[ext_resource type="AudioStream" uid="uid://c31573rtgwe86" path="res://sfx/tartazo_6.mp3" id="14_xoo47"]
+[ext_resource type="AudioStream" uid="uid://c7x8n5xxynhu" path="res://sfx/tartazo_7.mp3" id="15_pmkju"]
+[ext_resource type="AudioStream" uid="uid://buvn4s8vv5tg3" path="res://music/Sound_Gameplay.mp3" id="16_307ba"]
+[ext_resource type="PackedScene" uid="uid://omrjjreuq8ue" path="res://models/spectators/CH_Spectator_1.glb" id="16_tth3w"]
+[ext_resource type="PackedScene" uid="uid://1ivp48yydp62" path="res://models/spectators/CH_Spectator_2.glb" id="17_4lcw3"]
+[ext_resource type="PackedScene" uid="uid://jp4rvmu4c8t7" path="res://models/spectators/CH_Spectator_3.glb" id="18_150wq"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hmbbv"]
+sky_top_color = Color(0.384314, 0.454902, 0.501961, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+sky_cover_modulate = Color(0, 0, 0, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_06g6k"]
+sky_material = SubResource("ProceduralSkyMaterial_hmbbv")
+
+[sub_resource type="Environment" id="Environment_g2ofk"]
+background_mode = 2
+background_energy_multiplier = 0.7
+sky = SubResource("Sky_06g6k")
+tonemap_mode = 2
+sdfgi_enabled = true
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v32ew"]
+size = Vector3(63.8638, 16.2489, 1.57642)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hxjgj"]
+size = Vector3(35.9353, 15.7949, 2.95953)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d63wp"]
+size = Vector3(114.074, 23.3065, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m83l8"]
+size = Vector3(59.2645, 5.36414, 101.878)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jpjdo"]
+streams_count = 7
+stream_0/stream = ExtResource("9_aeajv")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("10_comso")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("11_48chi")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("12_mikc8")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("13_20sw2")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("14_xoo47")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("15_pmkju")
+stream_6/weight = 1.0
+
+[node name="Escenario" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_ti8cr")
+
+[node name="escenario" parent="." instance=ExtResource("2_oljt7")]
+
+[node name="GI" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_g2ofk")
+
+[node name="Player" parent="." instance=ExtResource("1_ffufx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4205, 8.79949, -0.790695)
+sens = 2.0
+speed = 30.0
+
+[node name="Label3D" type="Label3D" parent="Player"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0.273959, -0.961741, 0, 0.961741, 0.273959, 1, 1.19751e-08, -4.2039e-08, -39.38, 20.279, 0)
+current = true
+
+[node name="Foco" parent="." instance=ExtResource("3_fv01g")]
+transform = Transform3D(0.977314, -0.0986774, -0.187408, 0.189536, 0.802371, 0.565931, 0.0945263, -0.588612, 0.802871, -9.36681, 40.2209, -37.653)
+lightColor = Color(0, 1, 0, 1)
+lightRange = 53.0
+lightAngle = 40.0
+
+[node name="FPScounter" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -68.0
+offset_top = 24.0
+offset_right = -28.0
+offset_bottom = 47.0
+grow_horizontal = 0
+script = ExtResource("3_ijmp8")
+
+[node name="Puntos" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -68.0
+offset_top = 56.0
+offset_right = -28.0
+offset_bottom = 79.0
+grow_horizontal = 0
+
+[node name="Tiempo" type="Label" parent="."]
+offset_left = 1100.0
+offset_top = 88.0
+offset_right = 1140.0
+offset_bottom = 111.0
+
+[node name="InvWalls" type="Node3D" parent="."]
+
+[node name="Izquierda" type="StaticBody3D" parent="InvWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21668e-08, 0, -0.964664)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InvWalls/Izquierda"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65355, 11.6659, -46.9971)
+shape = SubResource("BoxShape3D_v32ew")
+
+[node name="Derecha" type="StaticBody3D" parent="InvWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.17846e-06, 0, 95.5919)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InvWalls/Derecha"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9309, 12.2314, -46.6958)
+shape = SubResource("BoxShape3D_hxjgj")
+
+[node name="Detras" type="StaticBody3D" parent="InvWalls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15.677, 0, 12.1984)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InvWalls/Detras"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9024, 11.1533, -46.275)
+shape = SubResource("BoxShape3D_d63wp")
+
+[node name="Frente" type="StaticBody3D" parent="InvWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8754, 0, -3.4786)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InvWalls/Frente"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -29.1435, 11.1533, 5.68116)
+shape = SubResource("BoxShape3D_d63wp")
+
+[node name="FocosEscenario" type="Node3D" parent="."]
+
+[node name="Foco1" parent="FocosEscenario" instance=ExtResource("3_fv01g")]
+transform = Transform3D(0.863685, 0.373639, -0.338294, -0.139948, 0.822554, 0.551198, 0.484214, -0.428717, 0.762717, -4.34315, 39.756, -31.9553)
+lightColor = Color(1, 0, 1, 1)
+lightRange = 53.0
+lightAngle = 40.0
+
+[node name="Foco2" parent="FocosEscenario" instance=ExtResource("3_fv01g")]
+transform = Transform3D(0.976432, 0.0222772, 0.21467, -0.139948, 0.822554, 0.551198, -0.164299, -0.56825, 0.806286, -15.7142, 40.6078, -42.1583)
+lightColor = Color(1, 0, 0, 1)
+lightRange = 53.0
+lightAngle = 40.0
+
+[node name="Foco3" parent="FocosEscenario" instance=ExtResource("3_fv01g")]
+transform = Transform3D(-0.950883, 0.248372, 0.184752, 0.303581, 0.86489, 0.399756, -0.0605021, 0.436209, -0.89781, -9.76419, 40.0986, 37.6458)
+lightColor = Color(0, 1, 0, 1)
+lightRange = 53.0
+lightAngle = 40.0
+
+[node name="Foco4" parent="FocosEscenario" instance=ExtResource("3_fv01g")]
+transform = Transform3D(-0.995116, 0.0702872, -0.0693176, 0.0316704, 0.892369, 0.450195, 0.0934997, 0.4458, -0.890236, -16.1292, 40.8593, 43.1115)
+lightColor = Color(1, 0, 1, 1)
+lightRange = 53.0
+lightAngle = 40.0
+
+[node name="Foco5" parent="FocosEscenario" instance=ExtResource("3_fv01g")]
+transform = Transform3D(-0.579308, 0.383437, -0.71929, 0.0316704, 0.892369, 0.450195, 0.814493, 0.238021, -0.5291, -4.69902, 39.5651, 33.0216)
+lightColor = Color(1, 0, 0, 1)
+lightRange = 53.0
+lightAngle = 40.0
+
+[node name="Foco6" parent="FocosEscenario" instance=ExtResource("3_fv01g")]
+transform = Transform3D(-0.579308, 0.383437, -0.71929, 0.0316704, 0.892369, 0.450195, 0.814493, 0.238021, -0.5291, -4.69902, 39.5651, 6.27213)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 53.0
+lightAngle = 40.0
+
+[node name="Foco7" parent="FocosEscenario" instance=ExtResource("3_fv01g")]
+transform = Transform3D(0.156223, 0.24637, -0.956502, 0.0652191, 0.963706, 0.258878, 0.985566, -0.102825, 0.134485, -2.92606, 39.5651, -14.3911)
+lightColor = Color(0.203922, 0.603922, 0.6, 1)
+lightRange = 53.0
+lightAngle = 40.0
+
+[node name="Foco8" parent="FocosEscenario" instance=ExtResource("3_fv01g")]
+transform = Transform3D(0.294783, 0.00103547, 0.955564, -0.476585, 0.866906, 0.146083, -0.828232, -0.498471, 0.256043, -2.92606, 39.5651, 18.9083)
+lightColor = Color(0.203922, 0.603922, 0.6, 1)
+lightRange = 50.0
+lightAngle = 40.0
+
+[node name="FocosPublicoDerecha" type="Node3D" parent="."]
+transform = Transform3D(1, -1.85541e-08, 4.13324e-09, 1.85541e-08, 0.905443, -0.424468, 4.13322e-09, 0.424468, 0.905443, 31.1745, 46.5416, 42.1119)
+
+[node name="Foco" parent="FocosPublicoDerecha" instance=ExtResource("3_fv01g")]
+transform = Transform3D(1, -3.55271e-15, 0, 8.47033e-22, 1, -3.88235e-22, 7.10543e-15, -5.43529e-22, 1, -9.97702, 0, -1.90735e-06)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 70.0
+lightAngle = 50.0
+
+[node name="Foco2" parent="FocosPublicoDerecha" instance=ExtResource("3_fv01g")]
+transform = Transform3D(1, -3.55271e-15, 0, 8.47033e-22, 1, -3.88235e-22, 7.10543e-15, -5.43529e-22, 1, 5, 0, 0)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 70.0
+lightAngle = 50.0
+
+[node name="Foco3" parent="FocosPublicoDerecha" instance=ExtResource("3_fv01g")]
+transform = Transform3D(1, -3.55271e-15, 0, 8.47033e-22, 1, -3.88235e-22, 7.10543e-15, -5.43529e-22, 1, 17.3946, 0, 0)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 70.0
+lightAngle = 50.0
+
+[node name="Foco4" parent="FocosPublicoDerecha" instance=ExtResource("3_fv01g")]
+transform = Transform3D(1, -3.55271e-15, 0, 8.47033e-22, 1, -3.88235e-22, 7.10543e-15, -5.43529e-22, 1, 31.9058, 0, 0)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 70.0
+lightAngle = 50.0
+
+[node name="Foco5" parent="FocosPublicoDerecha" instance=ExtResource("3_fv01g")]
+transform = Transform3D(1, -3.55271e-15, 0, 8.47033e-22, 1, -3.88235e-22, 7.10543e-15, -5.43529e-22, 1, 46.6851, 0, 1.90735e-06)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 70.0
+lightAngle = 50.0
+
+[node name="FocosPublicoIzquierda" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.905568, 0.424199, 0, -0.424199, 0.905568, 31.1745, 46.5416, -38.8825)
+
+[node name="Foco" parent="FocosPublicoIzquierda" instance=ExtResource("3_fv01g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.97702, 0, 0)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 70.0
+lightAngle = 50.0
+
+[node name="Foco2" parent="FocosPublicoIzquierda" instance=ExtResource("3_fv01g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 70.0
+lightAngle = 50.0
+
+[node name="Foco3" parent="FocosPublicoIzquierda" instance=ExtResource("3_fv01g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3946, 0, 9.53674e-07)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 70.0
+lightAngle = 50.0
+
+[node name="Foco4" parent="FocosPublicoIzquierda" instance=ExtResource("3_fv01g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9058, 0, 1.90735e-06)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 70.0
+lightAngle = 50.0
+
+[node name="Foco5" parent="FocosPublicoIzquierda" instance=ExtResource("3_fv01g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.6851, 0, 1.16644e-06)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 70.0
+lightAngle = 50.0
+
+[node name="Foco2" parent="." instance=ExtResource("3_fv01g")]
+transform = Transform3D(0.991892, -0.127082, -3.54397e-10, 0.127082, 0.991892, 5.55493e-09, -3.54405e-10, -5.55493e-09, 1, 92.924, 50.9854, 1.75057)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 60.0
+lightAngle = 50.0
+
+[node name="Generador" parent="." instance=ExtResource("5_abt4a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 10, 0)
+
+[node name="Timer" type="Timer" parent="Generador"]
+wait_time = 0.4
+autostart = true
+
+[node name="SueloColision" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("6_ujukf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SueloColision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3226, 2.18207, 2.6089)
+shape = SubResource("BoxShape3D_m83l8")
+
+[node name="nivel_entr" parent="." instance=ExtResource("8_m27mm")]
+offset_left = 2.0
+offset_top = -108.0
+offset_right = 2.0
+offset_bottom = -108.0
+
+[node name="timer_nivel_entr" type="Timer" parent="nivel_entr"]
+wait_time = 0.5
+autostart = true
+
+[node name="tiempo_juego" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[node name="sfx_tarta" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_jpjdo")
+
+[node name="FocosPublicoDetras" type="Node3D" parent="."]
+
+[node name="Foco3" parent="FocosPublicoDetras" instance=ExtResource("3_fv01g")]
+transform = Transform3D(-0.050063, -0.390748, 0.919135, 0.116806, 0.911683, 0.393942, -0.991892, 0.127082, -4.01767e-08, 12.3158, 49.2271, -10.6692)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 70.0
+lightAngle = 60.0
+
+[node name="Foco4" parent="FocosPublicoDetras" instance=ExtResource("3_fv01g")]
+transform = Transform3D(-0.050063, -0.390748, 0.919135, 0.116806, 0.911683, 0.393942, -0.991892, 0.127082, -4.01767e-08, 12.7648, 50.8512, 3.79418)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 70.0
+lightAngle = 60.0
+
+[node name="Foco5" parent="FocosPublicoDetras" instance=ExtResource("3_fv01g")]
+transform = Transform3D(-0.050063, -0.390748, 0.919135, 0.116806, 0.911683, 0.393942, -0.991892, 0.127082, -4.01767e-08, 12.6028, 50.9854, 22.0717)
+lightColor = Color(1, 1, 0, 1)
+lightRange = 70.0
+lightAngle = 60.0
+
+[node name="PublicoF1" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 23.8955, 0.11107, -28.3116)
+
+[node name="F11" parent="PublicoF1" instance=ExtResource("16_tth3w")]
+
+[node name="F12" parent="PublicoF1" instance=ExtResource("16_tth3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0128, 0, 0)
+
+[node name="F13" parent="PublicoF1" instance=ExtResource("16_tth3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5464, 0, 0)
+
+[node name="F14" parent="PublicoF1" instance=ExtResource("16_tth3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.1846, 0, 0)
+
+[node name="F15" parent="PublicoF1" instance=ExtResource("17_4lcw3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6852, 0, 0)
+
+[node name="mickey1" parent="PublicoF1" instance=ExtResource("18_150wq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1238, 0, 0)
+
+[node name="mickey2" parent="PublicoF1" instance=ExtResource("18_150wq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.7072, 0, 0)
+
+[node name="PublicoF2" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 71.9522, 22.9955, -28.3116)
+
+[node name="F11" parent="PublicoF2" instance=ExtResource("16_tth3w")]
+
+[node name="F12" parent="PublicoF2" instance=ExtResource("16_tth3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0128, 0, 0)
+
+[node name="F13" parent="PublicoF2" instance=ExtResource("16_tth3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5464, 0, 0)
+
+[node name="F14" parent="PublicoF2" instance=ExtResource("16_tth3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.1846, 0, 0)
+
+[node name="F15" parent="PublicoF2" instance=ExtResource("17_4lcw3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6852, 0, 0)
+
+[node name="mickey1" parent="PublicoF2" instance=ExtResource("18_150wq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1238, 0, 0)
+
+[node name="mickey2" parent="PublicoF2" instance=ExtResource("18_150wq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.7072, 0, 0)
+
+[node name="PublicoF3" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 41.855, 11.7411, -28.3116)
+
+[node name="F11" parent="PublicoF3" instance=ExtResource("16_tth3w")]
+
+[node name="F12" parent="PublicoF3" instance=ExtResource("16_tth3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0128, 0, 0)
+
+[node name="F13" parent="PublicoF3" instance=ExtResource("16_tth3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5464, 0, 0)
+
+[node name="F14" parent="PublicoF3" instance=ExtResource("16_tth3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.1846, 0, 0)
+
+[node name="F15" parent="PublicoF3" instance=ExtResource("17_4lcw3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6852, 0, 0)
+
+[node name="mickey1" parent="PublicoF3" instance=ExtResource("18_150wq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1238, 0, 0)
+
+[node name="mickey2" parent="PublicoF3" instance=ExtResource("18_150wq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.7072, 0, 0)
+
+[node name="PublicoF4" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 32.7869, 7.81856, -28.3116)
+
+[node name="CH_Spectator_1" parent="PublicoF4" instance=ExtResource("16_tth3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.64582, 0, 0)
+
+[node name="CH_Spectator_2" parent="PublicoF4" instance=ExtResource("17_4lcw3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.3324, 0, -0.00496674)
+
+[node name="CH_Spectator_4" parent="PublicoF4" instance=ExtResource("17_4lcw3")]
+
+[node name="CH_Spectator_5" parent="PublicoF4" instance=ExtResource("17_4lcw3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0429, 0, 0)
+
+[node name="CH_Spectator_3" parent="PublicoF4" instance=ExtResource("18_150wq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.7866, 0, 0)
+
+[node name="PublicoF5" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 60.8923, 18.645, -18.4992)
+
+[node name="CH_Spectator_1" parent="PublicoF5" instance=ExtResource("16_tth3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.64582, 0, 0)
+
+[node name="CH_Spectator_4" parent="PublicoF5" instance=ExtResource("17_4lcw3")]
+
+[node name="CH_Spectator_5" parent="PublicoF5" instance=ExtResource("17_4lcw3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0429, 0, 0)
+
+[node name="PublicoF6" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 47.5154, 15.546, 1.08477)
+
+[node name="CH_Spectator_1" parent="PublicoF6" instance=ExtResource("16_tth3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.64582, 0, 0)
+
+[node name="musica_escenario" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_307ba")
+autoplay = true
+
+[connection signal="atrapaTarta" from="Player" to="." method="_on_player_atrapa_tarta"]
+[connection signal="cogeMonociclo" from="Player" to="Player" method="_on_coge_monociclo"]
+[connection signal="cogeMonociclo" from="Player" to="Generador" method="_on_player_coge_monociclo"]
+[connection signal="area_entered" from="SueloColision" to="SueloColision" method="_on_area_entered"]
+[connection signal="timeout" from="nivel_entr/timer_nivel_entr" to="." method="_on_timer_nivel_entr_timeout"]
+[connection signal="timeout" from="tiempo_juego" to="." method="fin_juego_timeout"]
+[connection signal="finished" from="musica_escenario" to="." method="_on_musica_escenario_finished"]

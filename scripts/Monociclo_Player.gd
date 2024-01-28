@@ -7,6 +7,7 @@ extends CharacterBody3D
 @onready var label = get_parent().get_node("TiempoMonociclo")
 
 @onready var nivel = get_parent().get_node("nivel_entr")
+@onready var escenario = get_parent()
 
 var num_izq = 0
 var num_der = 0
@@ -14,6 +15,7 @@ var girar_izq = false
 var girar_der = false
 var fin = false
 var t = 0.0
+
 
 signal termina_monociclo
 
@@ -73,8 +75,6 @@ func _process(delta):
 	
 	if(not fin):
 		label.set_text(str(int(timer.get_time_left())))
-	else:
-		label.set_text("jajaj")
 	
 	if (abs(rotation.z) > 1.4 and visible):
 		die()
@@ -93,6 +93,7 @@ func _on_timer_timeout():
 	timer.stop()
 	visible = false
 	nivel.actualizar_niv_entr(30)
+	escenario.cambiar_puntos(30)
 
 func die():
 	fin = true
@@ -102,6 +103,8 @@ func die():
 	timer.stop()
 	visible = false
 	nivel.actualizar_niv_entr(-35)
+	escenario.cambiar_puntos(-10)
+	
 	
 func _on_player_coge_monociclo():
 	visible = true

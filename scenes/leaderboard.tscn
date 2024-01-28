@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d16qdag0yl06g"]
+[gd_scene load_steps=6 format=3 uid="uid://d16qdag0yl06g"]
 
 [ext_resource type="Script" path="res://scripts/leaderboard.gd" id="1_a7lfo"]
 [ext_resource type="FontFile" uid="uid://dxs0aqx3q488d" path="res://fonts/Inconsolata-VariableFont_wdth,wght.ttf" id="2_hnkqw"]
 [ext_resource type="Theme" uid="uid://cxdnyqlxku3w2" path="res://themes/button_theme.tres" id="3_oi6ak"]
 [ext_resource type="AudioStream" uid="uid://s00tltb6w1l1" path="res://sfx/click_2.mp3" id="4_yys5b"]
+[ext_resource type="AudioStream" uid="uid://y4kdse3ir2ce" path="res://music/bailando_a_capella.mp3" id="5_8cp45"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -49,4 +50,8 @@ grow_vertical = 0
 theme = ExtResource("3_oi6ak")
 text = "Back"
 
+[node name="bailando" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8cp45")
+
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="finished" from="bailando" to="." method="_on_bailando_finished"]

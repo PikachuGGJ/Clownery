@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bs4k5cpswgr6d"]
+[gd_scene load_steps=6 format=3 uid="uid://bs4k5cpswgr6d"]
 
 [ext_resource type="Texture2D" uid="uid://discay0qwqh6v" path="res://images/instrucciones.jpg" id="1_8cccc"]
 [ext_resource type="Script" path="res://scripts/instrucciones.gd" id="1_pi4yk"]
 [ext_resource type="Theme" uid="uid://cxdnyqlxku3w2" path="res://themes/button_theme.tres" id="3_s5t8w"]
 [ext_resource type="AudioStream" uid="uid://s00tltb6w1l1" path="res://sfx/click_2.mp3" id="5_6ttnu"]
+[ext_resource type="AudioStream" uid="uid://d1qvbyift6d2k" path="res://music/aprende_a_jugar.mp3" id="5_snpj2"]
 
 [node name="Instrucciones" type="Control"]
 layout_mode = 3
@@ -37,5 +38,9 @@ text = "Back
 
 [node name="click_boton" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_6ttnu")
+
+[node name="aprende_a_jugar" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_snpj2")
+volume_db = 5.0
 
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]

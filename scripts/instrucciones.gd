@@ -1,5 +1,7 @@
 extends Control
 
+func _ready():
+	$aprende_a_jugar.play()
 
 func _on_back_pressed():
 	$click_boton.play()

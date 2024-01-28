@@ -11,6 +11,8 @@ var tieneTarta = false
 signal atrapaTarta
 
 @onready var player_anim = $Player
+@onready var particulas : Array = [$Particulas1/AnimationPlayer, $Particulas2/AnimationPlayer, $Particulas3/AnimationPlayer, $Particulas4/AnimationPlayer]
+
 signal cogeMonociclo
 
 var tocando_monociclo = false
@@ -61,7 +63,7 @@ func _physics_process(delta):
 		player_anim.play_crab()
 	
 	if (velocity.normalized().length() <= 0.05 ):
-		player_anim.play_idle()
+		player_anim.play_crab()
 
 	move_and_slide()
 
@@ -69,6 +71,7 @@ func setTartaCara(estado):
 	if (tieneTarta and estado):
 		$Timer.stop()
 		$Timer.start()
+		play_tarta_animations()
 	elif not estado:
 		$Timer.stop()
 		$AnimationPlayer.play("quitarTarta")
@@ -78,6 +81,7 @@ func setTartaCara(estado):
 		$AnimationPlayer.play("RESET")
 		$Timer.start()
 		tieneTarta = true
+		play_tarta_animations()
 		
 	
 
@@ -105,3 +109,7 @@ func _on_coge_monociclo():
 	position.x = 0
 	position.z = 0
 	position.y += 10
+
+func play_tarta_animations():
+	for i in particulas:
+		i.play("Animation")

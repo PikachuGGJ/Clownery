@@ -22,3 +22,8 @@ func _process(delta):
 	$Puntos.set_text("Score: " + str(puntos))
 	$Tiempo.set_text(str(int($tiempo_juego.get_time_left())))
 
+
+
+func fin_juego_timeout():
+	ScoreManager.store_score(puntos)
+	Telon.change_scene_to_file("res://scenes/scores.tscn")

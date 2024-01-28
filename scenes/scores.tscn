@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://c325efq2kl2le"]
+[gd_scene load_steps=4 format=3 uid="uid://c325efq2kl2le"]
 
+[ext_resource type="Script" path="res://scripts/scores.gd" id="1_ldjr2"]
 [ext_resource type="Texture2D" uid="uid://c7holngxwgrya" path="res://backgrounds/foco.jpg" id="1_nfw7m"]
+[ext_resource type="Theme" uid="uid://cxdnyqlxku3w2" path="res://themes/button_theme.tres" id="3_ra7aj"]
 
 [node name="Scores" type="Node2D"]
+script = ExtResource("1_ldjr2")
 
 [node name="Foco" type="Sprite2D" parent="."]
 position = Vector2(568, 312)
@@ -14,9 +17,26 @@ offset_left = 129.0
 offset_top = 31.0
 offset_right = 391.0
 offset_bottom = 582.0
+bbcode_enabled = true
 
 [node name="end_message" type="RichTextLabel" parent="."]
 offset_left = 608.0
 offset_top = 42.0
 offset_right = 1108.0
 offset_bottom = 153.0
+bbcode_enabled = true
+
+[node name="back" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 534.0
+offset_top = 540.0
+offset_right = 634.0
+offset_bottom = 583.0
+grow_vertical = 0
+theme = ExtResource("3_ra7aj")
+text = "Back
+"
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

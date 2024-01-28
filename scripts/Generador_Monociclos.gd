@@ -15,7 +15,7 @@ var instancia
 func _ready():
 	timer.timeout.connect(_on_timer_timeout)
 	
-func generar_Tarta():
+func generar_Monociclo():
 	instancia = monociclo.instantiate()
 	var rng = RandomNumberGenerator.new()
 	var x = rng.randi_range(-20, 30)
@@ -33,7 +33,7 @@ func generar_Tarta():
 	add_child(instancia)
 
 func _on_timer_timeout():
-	generar_Tarta()
+	generar_Monociclo()
 
 
 func _on_player_coge_monociclo():

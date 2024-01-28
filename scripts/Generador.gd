@@ -7,16 +7,23 @@ extends Node3D
 @export var gravedad : Vector3 = Vector3.DOWN * 9.8
 @export var rotationSpeed : float = 1
 
+
+@onready var timer = get_node("Timer")
+
+var monociclo = preload("res://scenes/monociclo.tscn")
 var tarta = preload("res://scenes/tarta.tscn")
 var instancia
+var rng = RandomNumberGenerator.new()
 
 func _ready():
-	var timer = get_node("Timer")
 	timer.timeout.connect(_on_timer_timeout)
 	
-func generar_Tarta():
-	instancia = tarta.instantiate()
-	var rng = RandomNumberGenerator.new()
+func generar_Objeto():
+	if (rng.randi_range(0,100) > 7):
+		instancia = tarta.instantiate()
+	else:
+		instancia = monociclo.instantiate()
+		
 	var x = rng.randi_range(-20, 30)
 	var y = (x + 20) / 2 + 9
 	var z = rng.randi_range(-20, 20)
@@ -32,4 +39,11 @@ func generar_Tarta():
 	add_child(instancia)
 
 func _on_timer_timeout():
-	generar_Tarta()
+	generar_Objeto()
+
+func _on_player_coge_monociclo():
+	timer.stop()
+
+
+func _on_monociclo_player_termina_monociclo():
+	timer.start()

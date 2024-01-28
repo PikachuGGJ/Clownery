@@ -33,3 +33,6 @@ func fin_juego_timeout():
 
 func _on_musica_escenario_finished():
 	$musica_escenario.play()
+
+func cambiar_puntos(incremento : int):
+	puntos += incremento

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://du0csb5w14xsk"]
+[gd_scene load_steps=28 format=3 uid="uid://du0csb5w14xsk"]
 
 [ext_resource type="PackedScene" uid="uid://7lhhp3s64ijo" path="res://scenes/MovPlayer.tscn" id="1_ffufx"]
 [ext_resource type="Script" path="res://scripts/escenario.gd" id="1_ti8cr"]
@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://omrjjreuq8ue" path="res://models/spectators/CH_Spectator_1.glb" id="16_tth3w"]
 [ext_resource type="PackedScene" uid="uid://1ivp48yydp62" path="res://models/spectators/CH_Spectator_2.glb" id="17_4lcw3"]
 [ext_resource type="PackedScene" uid="uid://jp4rvmu4c8t7" path="res://models/spectators/CH_Spectator_3.glb" id="18_150wq"]
-[ext_resource type="PackedScene" uid="uid://cgnvhda4dp8p" path="res://scenes/monociclo_player.tscn" id="20_khgxt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hmbbv"]
 sky_top_color = Color(0.384314, 0.454902, 0.501961, 1)
@@ -36,6 +35,7 @@ background_mode = 2
 background_energy_multiplier = 0.7
 sky = SubResource("Sky_06g6k")
 tonemap_mode = 2
+sdfgi_enabled = true
 glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v32ew"]
@@ -82,9 +82,6 @@ sens = 2.0
 speed = 30.0
 
 [node name="Label3D" type="Label3D" parent="Player"]
-transform = Transform3D(-0.0354403, 0, 0.999372, 0, 1, 0, -0.999372, 0, -0.0354403, 0, 7.43241, 0)
-pixel_size = 0.1
-text = "X"
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0.273959, -0.961741, 0, 0.961741, 0.273959, 1, 1.19751e-08, -4.2039e-08, -39.38, 20.279, 0)
@@ -275,6 +272,13 @@ lightColor = Color(1, 1, 0, 1)
 lightRange = 60.0
 lightAngle = 50.0
 
+[node name="Generador" parent="." instance=ExtResource("5_abt4a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 10, 0)
+
+[node name="Timer" type="Timer" parent="Generador"]
+wait_time = 0.4
+autostart = true
+
 [node name="SueloColision" type="Area3D" parent="."]
 collision_layer = 2
 collision_mask = 2
@@ -295,7 +299,7 @@ wait_time = 0.5
 autostart = true
 
 [node name="tiempo_juego" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 30.0
 one_shot = true
 autostart = true
 
@@ -429,27 +433,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.64582, 0, 0)
 stream = ExtResource("16_307ba")
 autoplay = true
 
-[node name="Generador" parent="." instance=ExtResource("5_abt4a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 10, 0)
-
-[node name="Timer" type="Timer" parent="Generador"]
-wait_time = 0.4
-autostart = true
-
-[node name="Monociclo_Player" parent="." instance=ExtResource("20_khgxt")]
-transform = Transform3D(0.0274681, 0, -0.999623, 0, 1, 0, 0.999623, 0, 0.0274681, -11.1662, 3.21577, -4.88089e-07)
-
-[node name="Timer" type="Timer" parent="Monociclo_Player"]
-
-[node name="TiempoMonociclo" type="Label3D" parent="."]
-transform = Transform3D(0.993768, 0, -0.111469, 0, 1, 0, 0.111469, 0, 0.993768, 0, 28.869, -17.613)
-
 [connection signal="atrapaTarta" from="Player" to="." method="_on_player_atrapa_tarta"]
 [connection signal="cogeMonociclo" from="Player" to="Player" method="_on_coge_monociclo"]
 [connection signal="cogeMonociclo" from="Player" to="Generador" method="_on_player_coge_monociclo"]
-[connection signal="cogeMonociclo" from="Player" to="Monociclo_Player" method="_on_player_coge_monociclo"]
 [connection signal="area_entered" from="SueloColision" to="SueloColision" method="_on_area_entered"]
 [connection signal="timeout" from="nivel_entr/timer_nivel_entr" to="." method="_on_timer_nivel_entr_timeout"]
 [connection signal="timeout" from="tiempo_juego" to="." method="fin_juego_timeout"]
 [connection signal="finished" from="musica_escenario" to="." method="_on_musica_escenario_finished"]
-[connection signal="termina_monociclo" from="Monociclo_Player" to="Player" method="_on_monociclo_player_termina_monociclo"]

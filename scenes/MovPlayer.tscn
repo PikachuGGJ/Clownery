@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://7lhhp3s64ijo"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_j4dm2"]
-[ext_resource type="PackedScene" uid="uid://djrqjgdmo7qbl" path="res://scenes/player.tscn" id="2_5m18s"]
+[ext_resource type="PackedScene" uid="uid://0tgvbjuor035" path="res://scenes/player.tscn" id="2_5m18s"]
 [ext_resource type="PackedScene" uid="uid://d0haupjkl6jn3" path="res://models/AS_Cake.glb" id="3_7udw5"]
 [ext_resource type="Texture2D" uid="uid://bwrdiu53x75mw" path="res://models/VFX_Cake_crush2_VFX_Cake_particles.png" id="4_ca3l4"]
 
@@ -341,7 +341,7 @@ script = ExtResource("1_j4dm2")
 speed = 15.0
 
 [node name="Player" parent="." instance=ExtResource("2_5m18s")]
-transform = Transform3D(-1.66103e-07, 0, -3.8, 0, 3.8, 0, 3.8, 0, -1.66103e-07, 0.463531, -3.18974, -4.81165)
+transform = Transform3D(-1.66103e-07, 0, -3.8, 0, 3.8, 0, 3.8, 0, -1.66103e-07, 0.463531, -8.92876, -4.81165)
 
 [node name="BodyCollider" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_4la6o")

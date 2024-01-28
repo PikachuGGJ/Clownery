@@ -14,5 +14,7 @@ func _process(delta):
 func _on_area_entered(area):
 	if (area.name.begins_with("Tarta")):
 		area.die(name)
+	elif (area.name.begins_with("Monociclo")):
+		area.stop()
 	else:
 		print(area.name)

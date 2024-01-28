@@ -34,6 +34,8 @@ func _process(delta):
 	position = position + delta * velocity * speed;
 	velocity += delta * gravedad
 	
+	print(str(velocity))
+	
 	rotation += rotationSpeed * delta * Vector3(rng.randf_range(0,2*PI), rng.randf_range(0,2*PI), rng.randf_range(0,2*PI))
 
 func die(killer):

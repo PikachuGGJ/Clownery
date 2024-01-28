@@ -1,19 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://cus38cb6fh43n"]
 
 [ext_resource type="Script" path="res://scripts/Monociclo.gd" id="1_p4hto"]
-[ext_resource type="PackedScene" uid="uid://d0haupjkl6jn3" path="res://models/AS_Cake.glb" id="2_sctiq"]
+[ext_resource type="PackedScene" uid="uid://cjc6vx6fyqfi3" path="res://models/AS_Monocycle.glb" id="2_t1sj5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ppq8q"]
 size = Vector3(3.47028, 1.0663, 2.66016)
 
 [node name="Monociclo" type="Area3D"]
-transform = Transform3D(0.995227, 0.0916354, -0.0335576, -0.0337677, 0.000743643, -0.99943, -0.0915582, 0.995793, 0.00383437, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_p4hto")
 
-[node name="AS_Cake" parent="." instance=ExtResource("2_sctiq")]
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.104828, 1.04102, 0.21875)
 shape = SubResource("BoxShape3D_ppq8q")
+
+[node name="AS_Monocycle" parent="." instance=ExtResource("2_t1sj5")]
+transform = Transform3D(0.990477, 0.0576404, -0.125033, 0.124756, 0.008397, 0.992152, 0.058238, -0.998302, 0.00112607, 0, 0, 0)

@@ -364,7 +364,6 @@ libraries = {
 }
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
 
 [node name="Particulas1" type="Node3D" parent="."]
 transform = Transform3D(-7.43094e-08, 0, -1.7, 0, 1.7, 0, 1.7, 0, -7.43094e-08, 1.71644, 5.57772, -1.8421)
